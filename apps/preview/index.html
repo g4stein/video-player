@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0b0907" />
+    <title>Darkroom — a Video.js v10 skin developed under safelight</title>
+    <meta
+      name="description"
+      content="Darkroom is a custom Video.js v10 player skin. The controls ride on a strip of 35 mm film whose sprocket holes advance while the video plays."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23110d0b'/%3E%3Crect x='5' y='5' width='4' height='4' fill='%23f4ebe1'/%3E%3Crect x='14' y='5' width='4' height='4' fill='%23f4ebe1'/%3E%3Crect x='23' y='5' width='4' height='4' fill='%23f4ebe1'/%3E%3Crect x='5' y='23' width='4' height='4' fill='%23f4ebe1'/%3E%3Crect x='14' y='23' width='4' height='4' fill='%23f4ebe1'/%3E%3Crect x='23' y='23' width='4' height='4' fill='%23f4ebe1'/%3E%3Cpath d='M12 11.5l9 4.5-9 4.5z' fill='%23ffb340'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <a class="skip" href="#player">Skip to the player</a>
+
+    <header class="masthead">
+      <p class="eyebrow"><span class="tape" aria-hidden="true"></span>Video.js v10 skin</p>
+      <h1>Darkroom</h1>
+      <p class="lede">
+        A player developed under safelight. The controls ride on a strip of 35&nbsp;mm film, and the film advances
+        through the gate while the video plays.
+      </p>
+    </header>
+
+    <main>
+      <section id="player" class="theatre" aria-label="Player">
+        <div class="stage-wrap">
+          <div id="stage" class="stage"></div>
+        </div>
+
+        <div class="bench">
+          <div class="bench-group">
+            <span class="bench-label" id="reel-label">Footage</span>
+            <div id="reel-switch" class="segmented" role="radiogroup" aria-labelledby="reel-label"></div>
+          </div>
+          <div class="bench-group">
+            <span class="bench-label" id="size-label">Player size</span>
+            <div id="size-switch" class="segmented" role="radiogroup" aria-labelledby="size-label"></div>
+          </div>
+          <p id="reel-note" class="bench-note" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="notes" aria-labelledby="notes-title">
+        <h2 id="notes-title"><span class="frame-no" aria-hidden="true">01</span>Design notes</h2>
+        <div class="notes-grid">
+          <div class="prose">
+            <p>
+              Most custom players float a blurred glass panel over the picture. Darkroom grounds the controls on a
+              solid strip of film base instead. Its two sprocket rails are real holes, so the picture shows through
+              them, and while the video plays the rails roll forward like film through a projector gate. Pause, and
+              the film stops.
+            </p>
+            <p>
+              Amber, the colour of a darkroom safelight, marks everything you can act on. The timeline is cut into
+              frames, and the part you've watched glows from safelight red into amber, as if it had been exposed.
+              Hover the timeline and the preview frame arrives in a paper slide mount with its timecode printed on
+              the card. Tooltips are strips of masking tape.
+            </p>
+            <p>
+              Because the controls sit on a solid strip, they keep the same contrast over a white sky and a black
+              night scene. Switch the footage above to see it.
+            </p>
+          </div>
+
+          <dl class="specs">
+            <div>
+              <dt>Palette</dt>
+              <dd>
+                <ul class="swatches">
+                  <li style="--c: #110d0b"><span>Film base</span><code>#110D0B</code></li>
+                  <li style="--c: #f4ebe1"><span>Paper</span><code>#F4EBE1</code></li>
+                  <li style="--c: #ffb340"><span>Safelight amber</span><code>#FFB340</code></li>
+                  <li style="--c: #ff4d2e"><span>Safelight red</span><code>#FF4D2E</code></li>
+                </ul>
+              </dd>
+            </div>
+            <div>
+              <dt>Type</dt>
+              <dd class="type">
+                <span class="type-sans">IBM Plex Sans Condensed</span>
+                <span class="type-mono">IBM Plex Mono 0:42 / 1:51</span>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="notes" aria-labelledby="icons-title">
+        <h2 id="icons-title"><span class="frame-no" aria-hidden="true">02</span>Icon set</h2>
+        <p class="section-lede">
+          Drawn for this skin on a 24&nbsp;px grid with a 2&nbsp;px stroke and square caps. Transport glyphs are
+          solid, and active states fill in, so state never depends on colour alone.
+        </p>
+        <ul id="icon-sheet" class="icon-sheet"></ul>
+      </section>
+
+      <section class="notes" aria-labelledby="access-title">
+        <h2 id="access-title"><span class="frame-no" aria-hidden="true">03</span>Built for everyone</h2>
+        <div class="notes-grid">
+          <ul class="checks">
+            <li><strong>Readable over any frame.</strong> Text measures 16:1 and the amber accent 10:1 on the strip, and still 14:1 and 9:1 with a white frame behind it.</li>
+            <li><strong>Easy to tap.</strong> Every control is at least 44&nbsp;px on touch screens.</li>
+            <li>
+              <strong>Visible focus.</strong> One amber ring with a dark halo on buttons, slider thumbs and menu items.
+            </li>
+            <li><strong>Calm on request.</strong> With reduced motion on, the film stands still and menus cut.</li>
+            <li>
+              <strong>Fits the player, not the page.</strong> Container queries rearrange the strip from 20&nbsp;rem
+              to full screen.
+            </li>
+            <li><strong>Any language.</strong> All labels come from Video.js i18n, and the layout mirrors for RTL.</li>
+          </ul>
+
+          <div class="keys">
+            <h3>Keyboard</h3>
+            <dl>
+              <div><dt><kbd>Space</kbd> <kbd>K</kbd></dt><dd>Play or pause</dd></div>
+              <div><dt><kbd>Left</kbd> <kbd>Right</kbd></dt><dd>Seek 5 seconds</dd></div>
+              <div><dt><kbd>J</kbd> <kbd>L</kbd></dt><dd>Seek 10 seconds</dd></div>
+              <div><dt><kbd>Up</kbd> <kbd>Down</kbd></dt><dd>Volume</dd></div>
+              <div><dt><kbd>M</kbd></dt><dd>Mute</dd></div>
+              <div><dt><kbd>C</kbd></dt><dd>Captions</dd></div>
+              <div><dt><kbd>F</kbd></dt><dd>Fullscreen</dd></div>
+              <div><dt><kbd>I</kbd></dt><dd>Picture-in-picture</dd></div>
+              <div><dt><kbd>&lt;</kbd> <kbd>&gt;</kbd></dt><dd>Speed</dd></div>
+              <div><dt><kbd>0</kbd>–<kbd>9</kbd></dt><dd>Jump to 0–90%</dd></div>
+              <div><dt><kbd>Esc</kbd></dt><dd>Close a menu</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="colophon">
+      <p>
+        Darkroom is built on <a href="https://videojs.org/">Video.js v10</a> and streams from
+        <a href="https://www.mux.com/">Mux</a>. Licensed under Apache 2.0.
+      </p>
+      <p><a href="./workbench.html">Open the workbench</a> to test every size, language and playback setting.</p>
+    </footer>
+
+    <script type="module" src="/src/showcase/main.ts"></script>
+  </body>
+</html>
