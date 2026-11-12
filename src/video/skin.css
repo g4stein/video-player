@@ -212,17 +212,96 @@
       border: 1px solid #ffffff20;
       pointer-events: auto;
     }
+    /* The reference keeps its sculptural transport in the picture, separate from the dock. */
+    .ew-center {
+      position: absolute;
+      inset-inline-start: 50%;
+      top: 46.5%;
+      translate: -50% -50%;
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 1.5cqw, 24px);
+      pointer-events: none;
+      transition: opacity var(--ew-motion);
+    }
+    .ew-center > .ew-button {
+      pointer-events: auto;
+    }
+    .ew-center .ew-play {
+      width: clamp(72px, 13.5cqw, 216px);
+      height: clamp(72px, 13.5cqw, 216px);
+      background:
+        radial-gradient(circle at 28% 18%, #d3cbff88, transparent 45%),
+        radial-gradient(circle at 70% 88%, #9d38e980, transparent 55%),
+        linear-gradient(140deg, #6953c9dd, #362869bb);
+      border: 1px solid #e1cdffb3;
+      box-shadow:
+        inset 3px 5px 10px #e6e1ff77,
+        inset -2px -3px 8px #e3a5ff99,
+        0 0 30px #d89bff44,
+        0 15px 40px #08041944;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .ew-center .ew-play .ew-icon {
+      width: 38%;
+      height: 38%;
+    }
+    .ew-center .ew-skip {
+      display: grid;
+      width: clamp(52px, 9cqw, 144px);
+      height: clamp(52px, 9cqw, 144px);
+      background:
+        radial-gradient(circle at 30% 12%, #afa4ff55, transparent 60%),
+        linear-gradient(150deg, #5145a9bb, #302468aa);
+      border: 1px solid #b8aaff70;
+      box-shadow:
+        inset 0 2px 4px #dfdaff55,
+        inset 0 -1px 5px #a17df444,
+        0 8px 24px #10092b22;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .ew-center .ew-skip .ew-icon {
+      width: 64%;
+      height: 64%;
+    }
+    .ew-center .ew-play .is-pause {
+      width: 54%;
+      height: 54%;
+    }
+
+    .ew-center .ew-skip span {
+      font-size: clamp(11px, 1.75cqw, 28px);
+      padding-top: 5%;
+      font-weight: 500;
+    }
+    .ew-content:not([data-visible]) .ew-center {
+      opacity: 0;
+    }
+    .ew-content:not([data-visible]) .ew-center > .ew-button {
+      pointer-events: none;
+    }
+    .ew-content:has(:focus-visible) .ew-center {
+      opacity: 1;
+    }
+    .ew-content:has(:focus-visible) .ew-center > .ew-button {
+      pointer-events: auto;
+    }
+    :scope:has(.ew-buffer[data-visible]) .ew-center {
+      visibility: hidden;
+    }
     .ew-dock {
       position: absolute;
-      inset: auto var(--ew-dock-gap) var(--ew-dock-gap);
-      width: calc(100% - var(--ew-dock-gap) * 2);
+      inset: auto var(--ew-dock-side) var(--ew-dock-gap);
+      width: calc(100% - var(--ew-dock-side) * 2);
       max-width: var(--ew-dock-width);
       bottom: max(
         var(--ew-dock-gap),
         calc(env(safe-area-inset-bottom, 0px) + 12px)
       );
       margin-inline: auto;
-      padding: 16px 20px;
+      padding: clamp(12px, 1.5cqw, 24px) clamp(16px, 2cqw, 32px);
       border: 1px solid var(--ew-glass-edge);
       border-radius: var(--ew-radius);
       background: var(--ew-glass);
@@ -239,9 +318,6 @@
       align-items: center;
       gap: 10px;
       min-width: 0;
-    }
-    .ew-transport > .ew-play {
-      margin-inline-end: 0;
     }
     .ew-skip {
       border: 1px solid #c3b6ff44;
@@ -441,7 +517,7 @@
     .ew-content:not([data-visible]) .ew-dock {
       translate: 0 8px;
     }
-    .ew-content:focus-within :is(.ew-top, .ew-dock) {
+    .ew-content:has(:focus-visible) :is(.ew-top, .ew-dock) {
       opacity: 1;
       pointer-events: auto;
       translate: 0 0;
@@ -715,6 +791,31 @@
     .ew-status:not([data-open]) {
       display: none;
     }
+    .ew-dock .ew-button {
+      width: clamp(44px, 4.75cqw, 76px);
+      height: clamp(44px, 4.75cqw, 76px);
+    }
+    .ew-dock .ew-icon {
+      width: clamp(22px, 2.8cqw, 44px);
+      height: clamp(22px, 2.8cqw, 44px);
+    }
+    .ew-dock .ew-time {
+      font-size: clamp(12px, 1.75cqw, 28px);
+    }
+    .ew-trail {
+      height: clamp(6px, 0.875cqw, 14px);
+    }
+    .ew-playhead {
+      width: clamp(18px, 2.25cqw, 36px);
+      height: clamp(18px, 2.25cqw, 36px);
+    }
+    .ew-dock .ew-volume-slider {
+      width: clamp(64px, 8.5cqw, 136px);
+    }
+    .ew-volume-slider media-slider-thumb {
+      width: clamp(11px, 1.75cqw, 28px);
+      height: clamp(11px, 1.75cqw, 28px);
+    }
     @container media-root (width < 64rem) {
       .ew-dock {
         padding: 12px 16px;
@@ -737,6 +838,24 @@
       }
     }
     @container media-root (width < 52rem) {
+      .ew-dock {
+        --ew-dock-gap: 24px;
+      }
+      .ew-dock .ew-button {
+        width: 44px;
+        height: 44px;
+      }
+      .ew-dock .ew-icon {
+        width: 22px;
+        height: 22px;
+      }
+      .ew-dock .ew-time {
+        font-size: 11px;
+      }
+      .ew-dock .ew-volume-slider {
+        width: 64px;
+      }
+
       .ew-menu {
         --media-popover-side-offset: 82px;
         --media-popup-side-offset: 82px;
@@ -749,9 +868,6 @@
         flex-wrap: wrap;
         gap: 8px;
       }
-      .ew-skip {
-        display: none;
-      }
       .ew-play {
         width: 44px;
         height: 44px;
@@ -762,6 +878,10 @@
       .ew-time {
         margin-inline: 0;
         font-size: 11px;
+      }
+      .ew-time-duration,
+      media-time-separator {
+        display: inline;
       }
       .ew-time-duration,
       media-time-separator {
@@ -782,8 +902,14 @@
       }
     }
     @container media-root (width < 36rem) {
+      .ew-time-duration,
+      media-time-separator {
+        display: none;
+      }
+
       .ew-dock {
         --ew-dock-gap: 22px;
+        --ew-dock-side: 22px;
         padding: 12px;
         border-radius: 30px;
       }
@@ -805,8 +931,17 @@
       }
     }
     @container media-root (width < 19rem) {
+      .ew-top {
+        display: none;
+      }
+      .ew-center .ew-play {
+        width: 64px;
+        height: 64px;
+      }
+
       .ew-dock {
         --ew-dock-gap: 14px;
+        --ew-dock-side: 14px;
         padding: 10px;
       }
       .ew-volume-slider {
@@ -863,6 +998,8 @@
       }
       .ew-dock,
       .ew-menu,
+      .ew-center .ew-play,
+      .ew-center .ew-skip,
       .ew-play,
       .ew-skip,
       #ew-settings {

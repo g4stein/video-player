@@ -9,8 +9,9 @@
     --ew-line: #ffffff25;
     --ew-button: 44px;
     --ew-radius: 99px;
-    --ew-dock-gap: clamp(24px, 4cqw, 52px);
-    --ew-dock-width: 1120px;
+    --ew-dock-gap: clamp(24px, 7.5cqw, 120px);
+    --ew-dock-side: clamp(16px, 2cqw, 32px);
+    --ew-dock-width: 1536px;
     --ew-glass:
       linear-gradient(125deg, #6262ac45, #312b6255 45%, #4d386b38), #181531e8;
     --ew-glass-edge: #d8c7ff55;

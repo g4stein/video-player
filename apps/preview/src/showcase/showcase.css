@@ -931,6 +931,10 @@ footer svg {
   }
 }
 @container showcase-stage (width < 36rem) {
+  .stage .ew-player:not([data-fullscreen]) .ew-center {
+    top: calc((100% - 156px) / 2);
+  }
+
   .stage .ew-player:not([data-fullscreen]) {
     aspect-ratio: auto;
     height: calc(100cqw * 9 / 16 + 156px);

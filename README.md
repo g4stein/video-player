@@ -6,7 +6,7 @@ The player markup, theme, CSS, rounded icon family and showcase are designed as 
 
 ## The interface
 
-A floating violet glass dock holds glossy back/play/forward keys, time, a smooth luminous seek bar, mute/volume, captions, settings and fullscreen. Its white playhead and gradient fill reflect the actual playback position, with frame previews on hover. All transport controls sit in the dock, with a visible gap below it. The dock uses one row on desktop and two compact rows on phones.
+Large glossy back/play/pause/forward spheres sit in the center of the picture. A separate floating violet glass dock holds time, a smooth luminous seek bar, mute/volume, captions, settings and fullscreen. Its white playhead and gradient fill reflect the actual playback position, with frame previews on hover. The bottom capsule has a visible gap below it. The dock uses one row on desktop and two compact rows on phones.
 
 Settings expose actual available quality, speed, audio and caption options. Video.js supplies keyboard navigation, translated control labels, a status announcer, gestures, buffering and error handling. Controls have 44px targets, a consistent visible focus ring and contrast-preserving glass surfaces with opaque preference fallbacks. Reduced motion disables decorative and control motion. Phone showcase layouts reserve separate space for the image and dock.
 

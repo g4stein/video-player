@@ -54,3 +54,14 @@ The floating glass dock was checked in the production bundle with desktop (1440Ã
 - No browser JavaScript errors occurred in these checks. Touch contexts are browser emulation, not physical-device validation.
 - Seek preview cards remain within the player near 2%, 50% and 98% of the timeline. Fullscreen entry and exit passed after the dock change.
 - A later follow-up run encountered HTTP 503 responses from some Mux segment CDN endpoints after the successful three-context playback checks. Follow-up static preview checks used the available metadata and poster. The media source is unchanged by this refinement.
+
+
+## Reference-layout correction
+
+The large back/play/pause/forward spheres now remain in the center of the picture, as in the supplied reference. The bottom capsule contains only time, seeking, volume, captions, settings and fullscreen. Desktop sizes follow the reference proportions rather than using the earlier compact dock.
+
+- At a 1316px player width: center play 177.66px, side keys approximately 118px, capsule side margins 26.31px and bottom gap 98.69px.
+- Tablet: centered play 100.44px and 24px bottom gap. Phone: centered play 72px and 22px bottom gap. The central cluster and dock do not overlap in these layouts.
+- Corrected mouse-versus-keyboard focus behavior: only visible keyboard focus pins controls open; mouse clicks no longer prevent idle hiding.
+- Playback, pause icon, idle hiding, pointer/tap reveal, skip controls, settings focus return and automated accessibility scans passed in desktop, touch-enabled tablet and touch-enabled phone contexts using a local native-video fixture. The fixture is test-only and is not shipped. It avoids the intermittent Mux segment failures noted above.
+- Typecheck, production build and diff checks pass. Physical devices and other browser engines remain untested.
