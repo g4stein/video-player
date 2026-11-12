@@ -1,487 +1,473 @@
-<media-container class="media-skin media-container media-video" data-theme="darkroom" data-preset="video">
-<!-- Add a compatible media component here. -->
-<media-poster class="media-poster">
-<img alt="" decoding="async" class="media-poster-image">
-</media-poster>
-<media-error-dialog>
-<media-dialog-backdrop class="media-dialog-backdrop">
-</media-dialog-backdrop>
-<media-dialog-popup class="media-dialog-popup">
-<media-dialog-title class="media-dialog-title">
-</media-dialog-title>
-<media-dialog-description class="media-dialog-description">
-</media-dialog-description>
-<media-dialog-close class="media-button media-dialog-close">
-</media-dialog-close>
-</media-dialog-popup>
-</media-error-dialog>
-<media-controls>
-<media-controls-backdrop class="video-controls-backdrop">
-</media-controls-backdrop>
-<media-controls-group class="media-buffering-indicator-controls">
-<media-buffering-indicator class="media-buffering-indicator media-buffering-indicator-backdrop">
-<media-icon family="darkroom" name="spinner" class="media-buffering-indicator-spinner-icon">
-</media-icon>
-</media-buffering-indicator>
-</media-controls-group>
-<media-controls-content class="video-controls-content">
-<media-tooltip-group>
-<media-controls-group class="video-controls-top">
-<media-title class="media-title">
-</media-title>
-<media-airplay-button class="media-button media-chip-button media-airplay-button" id="dr-airplay-trigger">
-<media-icon family="darkroom" name="airplay-enter" class="media-button-icon media-airplay-button-enter-icon">
-</media-icon>
-<media-icon family="darkroom" name="airplay-exit" class="media-button-icon media-airplay-button-exit-icon">
-</media-icon>
-</media-airplay-button>
-<media-tooltip trigger="dr-airplay-trigger" side="bottom" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-<media-cast-button class="media-button media-chip-button media-cast-button" id="dr-cast-trigger">
-<media-icon family="darkroom" name="cast-enter" class="media-button-icon media-cast-button-enter-icon">
-</media-icon>
-<media-icon family="darkroom" name="cast-exit" class="media-button-icon media-cast-button-exit-icon">
-</media-icon>
-</media-cast-button>
-<media-tooltip trigger="dr-cast-trigger" side="bottom" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-<media-pip-button class="media-button media-chip-button media-pip-button" id="dr-pip-trigger">
-<media-icon family="darkroom" name="pip-enter" class="media-button-icon media-pip-button-enter-icon">
-</media-icon>
-<media-icon family="darkroom" name="pip-exit" class="media-button-icon media-pip-button-exit-icon">
-</media-icon>
-</media-pip-button>
-<media-tooltip trigger="dr-pip-trigger" side="bottom" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-</media-controls-group>
-<media-buffering-indicator class="video-controls-buffering">
-<media-controls-group class="video-controls-center">
-<media-seek-button seconds="-10" class="media-button media-chip-button video-controls-center-button video-controls-center-seek" id="dr-center-back-trigger">
-<span class="media-seek-button-content">
-<media-icon family="darkroom" name="seek" class="media-button-icon media-seek-button-backward-icon">
-</media-icon>
-<span class="media-seek-button-label" aria-hidden="true">10</span>
-</span>
-</media-seek-button>
-<media-tooltip trigger="dr-center-back-trigger" disabled side="top" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-<media-play-button class="media-button media-play-button media-play-key video-controls-center-button video-controls-center-play" id="dr-center-play-trigger">
-<media-icon family="darkroom" name="restart" class="media-button-icon-base media-play-button-restart-icon">
-</media-icon>
-<media-icon family="darkroom" name="play" class="media-button-icon-base media-play-button-play-icon">
-</media-icon>
-<media-icon family="darkroom" name="pause" class="media-button-icon-base media-play-button-pause-icon">
-</media-icon>
-</media-play-button>
-<media-tooltip trigger="dr-center-play-trigger" disabled side="top" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-<media-seek-button seconds="10" class="media-button media-chip-button video-controls-center-button video-controls-center-seek" id="dr-center-forward-trigger">
-<span class="media-seek-button-content">
-<media-icon family="darkroom" name="seek" class="media-button-icon">
-</media-icon>
-<span class="media-seek-button-label" aria-hidden="true">10</span>
-</span>
-</media-seek-button>
-<media-tooltip trigger="dr-center-forward-trigger" disabled side="top" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-</media-controls-group>
-</media-buffering-indicator>
-<div class="video-controls-bottom video-controls-video-bottom">
-<span class="media-film" aria-hidden="true"><span class="media-film-reel"></span></span>
-<div class="video-controls-slider-row">
-<media-time-slider class="media-time-slider" thumb-alignment="edge">
-<media-time-slider-chapters class="media-time-slider-chapters">
-<template>
-<div class="media-time-slider-chapter">
-<media-slider-track class="media-time-slider-track">
-<media-slider-buffer class="media-time-slider-buffer">
-</media-slider-buffer>
-<media-slider-fill class="media-time-slider-fill">
-</media-slider-fill>
-</media-slider-track>
-</div>
-</template>
-</media-time-slider-chapters>
-<media-slider-thumb class="media-time-slider-thumb">
-</media-slider-thumb>
-<media-slider-preview class="media-time-slider-preview">
-<span class="media-slide-mount">
-<media-slider-thumbnail class="media-slider-thumbnail">
-<img alt="" aria-hidden="true" decoding="async" class="media-slider-thumbnail-image">
-</media-slider-thumbnail>
-<span class="media-time-slider-preview-meta">
-<media-slider-value class="media-time-slider-value" type="pointer">
-</media-slider-value>
-<media-time-slider-chapter-title class="media-time-slider-chapter-title">
-</media-time-slider-chapter-title>
-</span>
-</span>
-</media-slider-preview>
-</media-time-slider>
-</div>
-<media-controls-group class="video-controls-row">
-<media-controls-group class="video-controls-group video-controls-start">
-<media-play-button class="media-button media-play-button media-play-key" id="dr-play-trigger">
-<media-icon family="darkroom" name="restart" class="media-button-icon-base media-play-button-restart-icon">
-</media-icon>
-<media-icon family="darkroom" name="play" class="media-button-icon-base media-play-button-play-icon">
-</media-icon>
-<media-icon family="darkroom" name="pause" class="media-button-icon-base media-play-button-pause-icon">
-</media-icon>
-</media-play-button>
-<media-tooltip trigger="dr-play-trigger" side="top" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-<media-seek-button seconds="-10" class="media-button media-bar-seek" id="dr-back-trigger">
-<span class="media-seek-button-content">
-<media-icon family="darkroom" name="seek" class="media-button-icon media-seek-button-backward-icon">
-</media-icon>
-<span class="media-seek-button-label" aria-hidden="true">10</span>
-</span>
-</media-seek-button>
-<media-tooltip trigger="dr-back-trigger" side="top" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-<media-seek-button seconds="10" class="media-button media-bar-seek" id="dr-forward-trigger">
-<span class="media-seek-button-content">
-<media-icon family="darkroom" name="seek" class="media-button-icon">
-</media-icon>
-<span class="media-seek-button-label" aria-hidden="true">10</span>
-</span>
-</media-seek-button>
-<media-tooltip trigger="dr-forward-trigger" side="top" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-<span class="media-volume-group">
-<media-mute-button class="media-button media-mute-button" id="dr-mute-trigger">
-<media-icon family="darkroom" name="volume-off" class="media-button-icon media-mute-button-off-icon">
-</media-icon>
-<media-icon family="darkroom" name="volume-low" class="media-button-icon media-mute-button-low-icon">
-</media-icon>
-<media-icon family="darkroom" name="volume-high" class="media-button-icon media-mute-button-high-icon">
-</media-icon>
-</media-mute-button>
-<media-tooltip trigger="dr-mute-trigger" side="top" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-<media-volume-slider class="media-volume-slider" orientation="horizontal" thumb-alignment="edge">
-<media-slider-track class="media-volume-slider-track">
-<media-slider-fill class="media-volume-slider-fill">
-</media-slider-fill>
-</media-slider-track>
-<media-slider-thumb class="media-volume-slider-thumb">
-</media-slider-thumb>
-</media-volume-slider>
-</span>
-<media-time-group class="media-time-group">
-<media-time class="media-time-toggle" type="current" toggle>
-</media-time>
-<media-time class="media-time-current-value" type="current">
-</media-time>
-<media-time-separator class="media-time-separator">
-</media-time-separator>
-<media-time class="media-time-duration-value" type="duration">
-</media-time>
-</media-time-group>
-</media-controls-group>
-<media-controls-group class="video-controls-group video-controls-end">
-<media-captions-button class="media-button media-captions-button" id="dr-captions-trigger">
-<media-icon family="darkroom" name="captions-off" class="media-button-icon media-captions-button-off-icon">
-</media-icon>
-<media-icon family="darkroom" name="captions-on" class="media-button-icon media-captions-button-on-icon">
-</media-icon>
-</media-captions-button>
-<media-tooltip trigger="dr-captions-trigger" side="top" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-<button type="button" commandfor="dr-settings-popup" class="media-button media-settings-button" id="dr-settings-trigger">
-<media-icon family="darkroom" name="gear" class="media-button-icon media-settings-button-icon">
-</media-icon>
-<media-text class="media-settings-button-label" token="menu.settings">Settings</media-text>
-</button>
-<media-tooltip trigger="dr-settings-trigger" side="top" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-text token="menu.settings">Settings</media-text>
-</media-tooltip>
-<media-menu side="top" align="end" class="media-popup media-popup-safe-area media-menu-popup" id="dr-settings-popup">
-<media-menu-content class="media-menu-content">
-<div class="media-menu-title" aria-hidden="true">
-<media-text token="menu.settings">Settings</media-text>
-</div>
-<media-menu-item commandfor="dr-quality-content" class="media-menu-item">
-<media-icon family="darkroom" name="switches" class="media-menu-trigger-icon">
-</media-icon>
-<media-text token="menu.quality">Quality</media-text>
-<span class="media-menu-hint">
-<span data-part="value" class="media-menu-hint-label">
-</span>
-<media-icon family="darkroom" name="chevron" class="media-menu-forward-chevron">
-</media-icon>
-</span>
-</media-menu-item>
-<media-menu-content class="media-menu-content" id="dr-quality-content">
-<media-menu-item class="media-menu-back-item">
-<media-icon family="darkroom" name="chevron" class="media-menu-back-chevron">
-</media-icon>
-<media-text token="menu.quality">Quality</media-text>
-</media-menu-item>
-<media-menu-separator class="media-menu-separator">
-</media-menu-separator>
-<media-quality-radio-group class="media-menu-radio-group">
-<template>
-<media-menu-radio-item class="media-menu-radio-item">
-<span class="media-menu-radio-label">
-<span data-part="label">
-</span>
-<sup data-part="tier" class="media-menu-tier">
-</sup>
-</span>
-<span data-part="badge" class="media-menu-badge">
-</span>
-<media-menu-item-indicator force-mount class="media-menu-indicator">
-<media-icon family="darkroom" name="check" class="media-menu-radio-icon">
-</media-icon>
-</media-menu-item-indicator>
-</media-menu-radio-item>
-</template>
-</media-quality-radio-group>
-</media-menu-content>
-<media-menu-item commandfor="dr-audio-content" class="media-menu-item">
-<media-icon family="darkroom" name="speech" class="media-menu-trigger-icon">
-</media-icon>
-<media-text token="menu.audio">Audio</media-text>
-<span class="media-menu-hint">
-<span data-part="value" class="media-menu-hint-label">
-</span>
-<media-icon family="darkroom" name="chevron" class="media-menu-forward-chevron">
-</media-icon>
-</span>
-</media-menu-item>
-<media-menu-content class="media-menu-content" id="dr-audio-content">
-<media-menu-item class="media-menu-back-item">
-<media-icon family="darkroom" name="chevron" class="media-menu-back-chevron">
-</media-icon>
-<media-text token="menu.audio">Audio</media-text>
-</media-menu-item>
-<media-menu-separator class="media-menu-separator">
-</media-menu-separator>
-<media-audio-track-radio-group class="media-menu-radio-group">
-<template>
-<media-menu-radio-item class="media-menu-radio-item">
-<span class="media-menu-radio-label" data-part="label">
-</span>
-<media-menu-item-indicator force-mount class="media-menu-indicator">
-<media-icon family="darkroom" name="check" class="media-menu-radio-icon">
-</media-icon>
-</media-menu-item-indicator>
-</media-menu-radio-item>
-</template>
-</media-audio-track-radio-group>
-</media-menu-content>
-<media-menu-item commandfor="dr-speed-content" class="media-menu-item">
-<media-icon family="darkroom" name="speed" class="media-menu-trigger-icon">
-</media-icon>
-<media-text token="menu.speed">Speed</media-text>
-<span class="media-menu-hint">
-<span data-part="value" class="media-menu-hint-label">
-</span>
-<media-icon family="darkroom" name="chevron" class="media-menu-forward-chevron">
-</media-icon>
-</span>
-</media-menu-item>
-<media-menu-content class="media-menu-content" id="dr-speed-content">
-<media-menu-item class="media-menu-back-item">
-<media-icon family="darkroom" name="chevron" class="media-menu-back-chevron">
-</media-icon>
-<media-text token="menu.speed">Speed</media-text>
-</media-menu-item>
-<media-menu-separator class="media-menu-separator">
-</media-menu-separator>
-<media-playback-rate-radio-group class="media-menu-radio-group">
-<template>
-<media-menu-radio-item class="media-menu-radio-item">
-<span class="media-menu-radio-label" data-part="label">
-</span>
-<media-menu-item-indicator force-mount class="media-menu-indicator">
-<media-icon family="darkroom" name="check" class="media-menu-radio-icon">
-</media-icon>
-</media-menu-item-indicator>
-</media-menu-radio-item>
-</template>
-</media-playback-rate-radio-group>
-</media-menu-content>
-<media-menu-item commandfor="dr-captions-content" class="media-menu-item">
-<media-icon family="darkroom" name="captions-off" class="media-menu-trigger-icon">
-</media-icon>
-<media-text token="menu.captions">Captions</media-text>
-<span class="media-menu-hint">
-<span data-part="value" class="media-menu-hint-label">
-</span>
-<media-icon family="darkroom" name="chevron" class="media-menu-forward-chevron">
-</media-icon>
-</span>
-</media-menu-item>
-<media-menu-content class="media-menu-content" id="dr-captions-content">
-<media-menu-item class="media-menu-back-item">
-<media-icon family="darkroom" name="chevron" class="media-menu-back-chevron">
-</media-icon>
-<media-text token="menu.captions">Captions</media-text>
-</media-menu-item>
-<media-menu-separator class="media-menu-separator">
-</media-menu-separator>
-<media-captions-radio-group class="media-menu-radio-group">
-<template>
-<media-menu-radio-item class="media-menu-radio-item">
-<span class="media-menu-radio-label" data-part="label">
-</span>
-<span data-part="badge" class="media-menu-badge">
-</span>
-<media-menu-item-indicator force-mount class="media-menu-indicator">
-<media-icon family="darkroom" name="check" class="media-menu-radio-icon">
-</media-icon>
-</media-menu-item-indicator>
-</media-menu-radio-item>
-</template>
-</media-captions-radio-group>
-</media-menu-content>
-</media-menu-content>
-</media-menu>
-<media-fullscreen-button class="media-button media-fullscreen-button" id="dr-fullscreen-trigger">
-<media-icon family="darkroom" name="fullscreen-enter" class="media-button-icon media-fullscreen-button-enter-icon">
-</media-icon>
-<media-icon family="darkroom" name="fullscreen-exit" class="media-button-icon media-fullscreen-button-exit-icon">
-</media-icon>
-</media-fullscreen-button>
-<media-tooltip trigger="dr-fullscreen-trigger" side="top" class="media-popup media-popup-safe-area media-tooltip-popup">
-<media-tooltip-label>
-</media-tooltip-label>
-<media-tooltip-shortcut class="media-tooltip-shortcut">
-</media-tooltip-shortcut>
-</media-tooltip>
-</media-controls-group>
-</media-controls-group>
-</div>
-</media-tooltip-group>
-</media-controls-content>
-</media-controls>
-<media-hotkey keys="Space" action="togglePaused">
-</media-hotkey>
-<media-hotkey keys="k" action="togglePaused">
-</media-hotkey>
-<media-hotkey keys="m" action="toggleMuted">
-</media-hotkey>
-<media-hotkey keys="ArrowRight" action="seekStep">
-</media-hotkey>
-<media-hotkey keys="ArrowLeft" action="seekStep">
-</media-hotkey>
-<media-hotkey keys="l" action="seekStep">
-</media-hotkey>
-<media-hotkey keys="j" action="seekStep">
-</media-hotkey>
-<media-hotkey keys="ArrowUp" action="volumeStep">
-</media-hotkey>
-<media-hotkey keys="ArrowDown" action="volumeStep">
-</media-hotkey>
-<media-hotkey keys="0-9" action="seekToPercent">
-</media-hotkey>
-<media-hotkey keys="Home" action="seekToPercent" value="0">
-</media-hotkey>
-<media-hotkey keys="End" action="seekToPercent" value="100">
-</media-hotkey>
-<media-hotkey keys=">" action="speedUp">
-</media-hotkey>
-<media-hotkey keys="<" action="speedDown">
-</media-hotkey>
-<media-hotkey keys="f" action="toggleFullscreen">
-</media-hotkey>
-<media-hotkey keys="c" action="toggleSubtitles">
-</media-hotkey>
-<media-hotkey keys="i" action="togglePictureInPicture">
-</media-hotkey>
-<media-gesture type="tap" action="togglePaused" pointer="mouse" region="center">
-</media-gesture>
-<media-gesture type="tap" action="toggleControls" pointer="touch">
-</media-gesture>
-<media-gesture type="doubletap" action="seekStep" region="left">
-</media-gesture>
-<media-gesture type="doubletap" action="toggleFullscreen" region="center">
-</media-gesture>
-<media-gesture type="doubletap" action="seekStep" region="right">
-</media-gesture>
-<media-status-announcer class="media-status-announcer">
-</media-status-announcer>
-<div aria-hidden="true" class="media-indicator-group">
-<media-volume-indicator class="media-indicator media-volume-indicator">
-<media-volume-indicator-fill class="media-volume-indicator-fill">
-<media-icon family="darkroom" name="volume-high" class="media-volume-indicator-icon media-volume-indicator-high-icon">
-</media-icon>
-<media-icon family="darkroom" name="volume-low" class="media-volume-indicator-icon media-volume-indicator-low-icon">
-</media-icon>
-<media-icon family="darkroom" name="volume-off" class="media-volume-indicator-icon media-volume-indicator-off-icon">
-</media-icon>
-<media-volume-indicator-value class="media-volume-indicator-value">
-</media-volume-indicator-value>
-</media-volume-indicator-fill>
-</media-volume-indicator>
-<media-status-indicator actions="toggleSubtitles,toggleFullscreen,togglePictureInPicture" class="media-indicator media-status-indicator">
-<media-icon family="darkroom" name="captions-on" class="media-status-indicator-icon media-status-indicator-captions-on-icon">
-</media-icon>
-<media-icon family="darkroom" name="captions-off" class="media-status-indicator-icon media-status-indicator-captions-off-icon">
-</media-icon>
-<media-icon family="darkroom" name="fullscreen-enter" class="media-status-indicator-icon media-status-indicator-fullscreen-enter-icon">
-</media-icon>
-<media-icon family="darkroom" name="fullscreen-exit" class="media-status-indicator-icon media-status-indicator-fullscreen-exit-icon">
-</media-icon>
-<media-icon family="darkroom" name="pip-enter" class="media-status-indicator-icon media-status-indicator-pip-enter-icon">
-</media-icon>
-<media-icon family="darkroom" name="pip-exit" class="media-status-indicator-icon media-status-indicator-pip-exit-icon">
-</media-icon>
-<media-status-indicator-value>
-</media-status-indicator-value>
-</media-status-indicator>
-<media-seek-indicator class="media-indicator media-seek-indicator">
-<media-icon family="darkroom" name="seek" class="media-seek-indicator-icon">
-</media-icon>
-<media-seek-indicator-value class="media-seek-indicator-value">
-</media-seek-indicator-value>
-</media-seek-indicator>
-</div>
+<media-container
+  class="media-skin ew-player"
+  data-theme="elsewhere"
+  data-preset="video"
+>
+  <!-- Add a compatible media component here. -->
+  <media-poster class="ew-poster"><img alt="" decoding="async" /></media-poster>
+  <media-error-dialog
+    ><media-dialog-backdrop class="ew-dialog-backdrop"></media-dialog-backdrop
+    ><media-dialog-popup class="ew-dialog"
+      ><media-dialog-title></media-dialog-title
+      ><media-dialog-description></media-dialog-description
+      ><media-dialog-close
+        class="ew-button"
+      ></media-dialog-close></media-dialog-popup
+  ></media-error-dialog>
+  <media-controls>
+    <media-controls-backdrop class="ew-scrim"></media-controls-backdrop>
+    <media-controls-group class="ew-buffer-group"
+      ><media-buffering-indicator class="ew-buffer"
+        ><media-icon
+          family="elsewhere"
+          name="spinner"
+          class="ew-icon"
+        ></media-icon></media-buffering-indicator
+    ></media-controls-group>
+    <media-controls-content class="ew-content"
+      ><media-tooltip-group>
+        <media-controls-group class="ew-top"
+          ><media-title class="ew-title"></media-title
+          ><media-pip-button id="ew-pip" class="ew-button ew-pip"
+            ><media-icon
+              family="elsewhere"
+              name="pip-enter"
+              class="ew-icon is-enter"
+            ></media-icon
+            ><media-icon
+              family="elsewhere"
+              name="pip-exit"
+              class="ew-icon is-exit"
+            ></media-icon></media-pip-button
+          ><media-tooltip trigger="ew-pip" side="top" class="ew-tooltip"
+            ><media-tooltip-label></media-tooltip-label
+            ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
+        ></media-controls-group>
+        <media-controls-group class="ew-center"
+          ><media-play-button
+            id="ew-center-play"
+            class="ew-button ew-play ew-orb"
+            ><media-icon
+              family="elsewhere"
+              name="play"
+              class="ew-icon is-play"
+            ></media-icon
+            ><media-icon
+              family="elsewhere"
+              name="pause"
+              class="ew-icon is-pause"
+            ></media-icon
+            ><media-icon
+              family="elsewhere"
+              name="restart"
+              class="ew-icon is-restart"
+            ></media-icon></media-play-button
+          ><span class="ew-orbit" aria-hidden="true"></span
+        ></media-controls-group>
+        <media-controls-group class="ew-dock">
+          <media-controls-group class="ew-transport"
+            ><media-play-button id="ew-play" class="ew-button ew-play"
+              ><media-icon
+                family="elsewhere"
+                name="play"
+                class="ew-icon is-play"
+              ></media-icon
+              ><media-icon
+                family="elsewhere"
+                name="pause"
+                class="ew-icon is-pause"
+              ></media-icon
+              ><media-icon
+                family="elsewhere"
+                name="restart"
+                class="ew-icon is-restart"
+              ></media-icon></media-play-button
+            ><media-tooltip trigger="ew-play" side="top" class="ew-tooltip"
+              ><media-tooltip-label></media-tooltip-label
+              ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
+            ><media-seek-button
+              seconds="-10"
+              id="ew-seek--10"
+              class="ew-button ew-skip"
+              ><media-icon
+                family="elsewhere"
+                name="seek"
+                class="ew-icon backward"
+              ></media-icon
+              ><span aria-hidden="true">10</span></media-seek-button
+            ><media-tooltip trigger="ew-seek--10" side="top" class="ew-tooltip"
+              ><media-tooltip-label></media-tooltip-label
+              ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
+            ><media-seek-button
+              seconds="10"
+              id="ew-seek-10"
+              class="ew-button ew-skip"
+              ><media-icon
+                family="elsewhere"
+                name="seek"
+                class="ew-icon"
+              ></media-icon
+              ><span aria-hidden="true">10</span></media-seek-button
+            ><media-tooltip trigger="ew-seek-10" side="top" class="ew-tooltip"
+              ><media-tooltip-label></media-tooltip-label
+              ><media-tooltip-shortcut></media-tooltip-shortcut
+            ></media-tooltip>
+            <div class="ew-volume">
+              <media-mute-button id="ew-mute" class="ew-button ew-mute"
+                ><media-icon
+                  family="elsewhere"
+                  name="volume-off"
+                  class="ew-icon is-off"
+                ></media-icon
+                ><media-icon
+                  family="elsewhere"
+                  name="volume-low"
+                  class="ew-icon is-low"
+                ></media-icon
+                ><media-icon
+                  family="elsewhere"
+                  name="volume-high"
+                  class="ew-icon is-high"
+                ></media-icon></media-mute-button
+              ><media-tooltip trigger="ew-mute" side="top" class="ew-tooltip"
+                ><media-tooltip-label></media-tooltip-label
+                ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
+              ><media-volume-slider
+                class="ew-volume-slider"
+                thumb-alignment="edge"
+                ><media-slider-track
+                  ><media-slider-fill></media-slider-fill></media-slider-track
+                ><media-slider-thumb></media-slider-thumb
+              ></media-volume-slider>
+            </div>
+            <media-time-group class="ew-time"
+              ><media-time type="current" class="ew-time-current"></media-time
+              ><media-time-separator></media-time-separator
+              ><media-time type="duration" class="ew-time-duration"></media-time
+            ></media-time-group>
+            <div class="ew-transport-spacer"></div>
+            <media-captions-button
+              id="ew-captions"
+              class="ew-button ew-captions"
+              ><media-icon
+                family="elsewhere"
+                name="captions-off"
+                class="ew-icon is-off"
+              ></media-icon
+              ><media-icon
+                family="elsewhere"
+                name="captions-on"
+                class="ew-icon is-on"
+              ></media-icon></media-captions-button
+            ><media-tooltip trigger="ew-captions" side="top" class="ew-tooltip"
+              ><media-tooltip-label></media-tooltip-label
+              ><media-tooltip-shortcut></media-tooltip-shortcut
+            ></media-tooltip>
+            <button
+              type="button"
+              id="ew-settings"
+              commandfor="ew-settings-menu"
+              class="ew-button"
+            >
+              <media-icon
+                family="elsewhere"
+                name="gear"
+                class="ew-icon"
+              ></media-icon
+              ><media-text token="menu.settings" class="ew-sr-only"
+                >Settings</media-text
+              ></button
+            ><media-tooltip trigger="ew-settings" class="ew-tooltip"
+              ><media-text token="menu.settings"
+                >Settings</media-text
+              ></media-tooltip
+            >
+            <media-menu
+              id="ew-settings-menu"
+              class="ew-menu"
+              side="top"
+              align="end"
+              ><media-menu-content class="ew-menu-content"
+                ><div class="ew-menu-heading" aria-hidden="true">
+                  <media-text token="menu.settings">Settings</media-text>
+                </div>
+                <media-menu-item
+                  commandfor="ew-quality-panel"
+                  class="ew-menu-item"
+                  ><media-icon
+                    family="elsewhere"
+                    name="switches"
+                    class="ew-icon"
+                  ></media-icon
+                  ><media-text token="menu.quality">Quality</media-text
+                  ><span data-part="hint" class="ew-menu-hint"></span
+                  ><media-icon
+                    family="elsewhere"
+                    name="chevron"
+                    class="ew-icon"
+                  ></media-icon></media-menu-item
+                ><media-menu-item
+                  commandfor="ew-speed-panel"
+                  class="ew-menu-item"
+                  ><media-icon
+                    family="elsewhere"
+                    name="speed"
+                    class="ew-icon"
+                  ></media-icon
+                  ><media-text token="menu.speed">Speed</media-text
+                  ><span data-part="hint" class="ew-menu-hint"></span
+                  ><media-icon
+                    family="elsewhere"
+                    name="chevron"
+                    class="ew-icon"
+                  ></media-icon></media-menu-item
+                ><media-menu-item
+                  commandfor="ew-audio-panel"
+                  class="ew-menu-item"
+                  ><media-icon
+                    family="elsewhere"
+                    name="speech"
+                    class="ew-icon"
+                  ></media-icon
+                  ><media-text token="menu.audio">Audio</media-text
+                  ><span data-part="hint" class="ew-menu-hint"></span
+                  ><media-icon
+                    family="elsewhere"
+                    name="chevron"
+                    class="ew-icon"
+                  ></media-icon></media-menu-item
+                ><media-menu-item
+                  commandfor="ew-captions-panel"
+                  class="ew-menu-item"
+                  ><media-icon
+                    family="elsewhere"
+                    name="captions-off"
+                    class="ew-icon"
+                  ></media-icon
+                  ><media-text token="menu.captions">Captions</media-text
+                  ><span data-part="hint" class="ew-menu-hint"></span
+                  ><media-icon
+                    family="elsewhere"
+                    name="chevron"
+                    class="ew-icon"
+                  ></media-icon></media-menu-item></media-menu-content
+              ><media-menu-content id="ew-quality-panel" class="ew-menu-content"
+                ><media-menu-item class="ew-menu-back"
+                  ><media-icon
+                    family="elsewhere"
+                    name="chevron"
+                    class="ew-icon"
+                  ></media-icon
+                  ><media-text token="menu.quality"
+                    >Quality</media-text
+                  ></media-menu-item
+                ><media-menu-separator></media-menu-separator
+                ><media-quality-radio-group
+                  ><template
+                    ><media-menu-radio-item class="ew-menu-item"
+                      ><span data-part="label"></span
+                      ><media-menu-item-indicator
+                        ><media-icon
+                          family="elsewhere"
+                          name="check"
+                          class="ew-icon"
+                        ></media-icon></media-menu-item-indicator></media-menu-radio-item></template></media-quality-radio-group></media-menu-content
+              ><media-menu-content id="ew-speed-panel" class="ew-menu-content"
+                ><media-menu-item class="ew-menu-back"
+                  ><media-icon
+                    family="elsewhere"
+                    name="chevron"
+                    class="ew-icon"
+                  ></media-icon
+                  ><media-text token="menu.speed"
+                    >Speed</media-text
+                  ></media-menu-item
+                ><media-menu-separator></media-menu-separator
+                ><media-playback-rate-radio-group
+                  ><template
+                    ><media-menu-radio-item class="ew-menu-item"
+                      ><span data-part="label"></span
+                      ><media-menu-item-indicator
+                        ><media-icon
+                          family="elsewhere"
+                          name="check"
+                          class="ew-icon"
+                        ></media-icon></media-menu-item-indicator></media-menu-radio-item></template></media-playback-rate-radio-group></media-menu-content
+              ><media-menu-content id="ew-audio-panel" class="ew-menu-content"
+                ><media-menu-item class="ew-menu-back"
+                  ><media-icon
+                    family="elsewhere"
+                    name="chevron"
+                    class="ew-icon"
+                  ></media-icon
+                  ><media-text token="menu.audio"
+                    >Audio</media-text
+                  ></media-menu-item
+                ><media-menu-separator></media-menu-separator
+                ><media-audio-track-radio-group
+                  ><template
+                    ><media-menu-radio-item class="ew-menu-item"
+                      ><span data-part="label"></span
+                      ><media-menu-item-indicator
+                        ><media-icon
+                          family="elsewhere"
+                          name="check"
+                          class="ew-icon"
+                        ></media-icon></media-menu-item-indicator></media-menu-radio-item></template></media-audio-track-radio-group></media-menu-content
+              ><media-menu-content
+                id="ew-captions-panel"
+                class="ew-menu-content"
+                ><media-menu-item class="ew-menu-back"
+                  ><media-icon
+                    family="elsewhere"
+                    name="chevron"
+                    class="ew-icon"
+                  ></media-icon
+                  ><media-text token="menu.captions"
+                    >Captions</media-text
+                  ></media-menu-item
+                ><media-menu-separator></media-menu-separator
+                ><media-captions-radio-group
+                  ><template
+                    ><media-menu-radio-item class="ew-menu-item"
+                      ><span data-part="label"></span
+                      ><media-menu-item-indicator
+                        ><media-icon
+                          family="elsewhere"
+                          name="check"
+                          class="ew-icon"
+                        ></media-icon></media-menu-item-indicator></media-menu-radio-item></template></media-captions-radio-group></media-menu-content
+            ></media-menu>
+            <media-fullscreen-button
+              id="ew-fullscreen"
+              class="ew-button ew-fullscreen"
+              ><media-icon
+                family="elsewhere"
+                name="fullscreen-enter"
+                class="ew-icon is-enter"
+              ></media-icon
+              ><media-icon
+                family="elsewhere"
+                name="fullscreen-exit"
+                class="ew-icon is-exit"
+              ></media-icon></media-fullscreen-button
+            ><media-tooltip
+              trigger="ew-fullscreen"
+              side="top"
+              class="ew-tooltip"
+              ><media-tooltip-label></media-tooltip-label
+              ><media-tooltip-shortcut></media-tooltip-shortcut
+            ></media-tooltip>
+          </media-controls-group>
+          <div class="ew-seek-row">
+            <media-time-slider class="ew-timeline"
+              ><media-slider-track class="ew-trail"
+                ><media-slider-buffer></media-slider-buffer
+                ><media-slider-fill></media-slider-fill></media-slider-track
+              ><media-slider-thumb class="ew-playhead"></media-slider-thumb
+              ><media-slider-preview class="ew-preview"
+                ><div class="ew-preview-card">
+                  <media-slider-thumbnail
+                    ><img class="ew-thumbnail-image" alt=""
+                  /></media-slider-thumbnail>
+                  <div>
+                    <media-slider-value type="pointer"></media-slider-value
+                    ><media-time-slider-chapter-title></media-time-slider-chapter-title>
+                  </div></div></media-slider-preview
+            ></media-time-slider>
+          </div>
+        </media-controls-group> </media-tooltip-group
+    ></media-controls-content>
+  </media-controls>
+  <media-hotkey keys="Space" action="togglePaused"></media-hotkey
+  ><media-hotkey keys="k" action="togglePaused"></media-hotkey
+  ><media-hotkey keys="m" action="toggleMuted"></media-hotkey
+  ><media-hotkey keys="ArrowLeft" action="seekStep"></media-hotkey
+  ><media-hotkey keys="ArrowRight" action="seekStep"></media-hotkey
+  ><media-hotkey keys="j" action="seekStep"></media-hotkey
+  ><media-hotkey keys="l" action="seekStep"></media-hotkey
+  ><media-hotkey keys="ArrowUp" action="volumeStep"></media-hotkey
+  ><media-hotkey keys="ArrowDown" action="volumeStep"></media-hotkey
+  ><media-hotkey keys="f" action="toggleFullscreen"></media-hotkey
+  ><media-hotkey keys="c" action="toggleSubtitles"></media-hotkey
+  ><media-hotkey keys="i" action="togglePictureInPicture"></media-hotkey
+  ><media-hotkey keys="0-9" action="seekToPercent"></media-hotkey
+  ><media-hotkey keys="Home" action="seekToPercent" value="0"></media-hotkey
+  ><media-hotkey keys="End" action="seekToPercent" value="100"></media-hotkey>
+  <media-hotkey keys="&gt;" action="speedUp"></media-hotkey>
+  <media-hotkey keys="&lt;" action="speedDown"></media-hotkey>
+  <media-gesture
+    type="tap"
+    action="togglePaused"
+    pointer="mouse"
+    region="center"
+  ></media-gesture
+  ><media-gesture
+    type="tap"
+    action="toggleControls"
+    pointer="touch"
+  ></media-gesture
+  ><media-gesture
+    type="doubletap"
+    action="seekStep"
+    region="left"
+  ></media-gesture
+  ><media-gesture
+    type="doubletap"
+    action="toggleFullscreen"
+    region="center"
+  ></media-gesture
+  ><media-gesture
+    type="doubletap"
+    action="seekStep"
+    region="right"
+  ></media-gesture>
+  <media-status-announcer class="ew-sr-only"></media-status-announcer>
+  <div class="ew-indicators" aria-hidden="true">
+    <media-volume-indicator class="ew-status"
+      ><media-icon
+        family="elsewhere"
+        name="volume-high"
+        class="ew-icon"
+      ></media-icon
+      ><media-volume-indicator-fill
+        ><media-volume-indicator-value></media-volume-indicator-value></media-volume-indicator-fill></media-volume-indicator
+    ><media-seek-indicator class="ew-status"
+      ><media-icon family="elsewhere" name="seek" class="ew-icon"></media-icon
+      ><media-seek-indicator-value></media-seek-indicator-value></media-seek-indicator
+    ><media-status-indicator
+      class="ew-status ew-feedback"
+      actions="toggleFullscreen,toggleSubtitles,togglePictureInPicture"
+      ><media-icon
+        family="elsewhere"
+        name="fullscreen-enter"
+        class="ew-icon ew-feedback-fullscreen"
+      ></media-icon
+      ><media-icon
+        family="elsewhere"
+        name="fullscreen-exit"
+        class="ew-icon ew-feedback-exit-fullscreen"
+      ></media-icon
+      ><media-icon
+        family="elsewhere"
+        name="captions-on"
+        class="ew-icon ew-feedback-captions-on"
+      ></media-icon
+      ><media-icon
+        family="elsewhere"
+        name="captions-off"
+        class="ew-icon ew-feedback-captions-off"
+      ></media-icon
+      ><media-icon
+        family="elsewhere"
+        name="pip-enter"
+        class="ew-icon ew-feedback-pip"
+      ></media-icon
+      ><media-icon
+        family="elsewhere"
+        name="pip-exit"
+        class="ew-icon ew-feedback-exit-pip"
+      ></media-icon
+    ></media-status-indicator>
+  </div>
 </media-container>
