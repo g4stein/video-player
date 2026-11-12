@@ -1,6 +1,6 @@
-/* Global styles for the skin, loaded only in the preview. The skin names these fonts first and falls back to system fonts. */
-@import "@fontsource/ibm-plex-sans-condensed/500.css";
-@import "@fontsource/ibm-plex-sans-condensed/600.css";
-@import "@fontsource/ibm-plex-sans-condensed/700.css";
-@import "@fontsource/ibm-plex-mono/500.css";
-@import "@fontsource/ibm-plex-mono/600.css";
+@import "@fontsource/dm-sans/latin-400.css";
+@import "@fontsource/dm-sans/latin-500.css";
+@import "@fontsource/dm-sans/latin-600.css";
+@import "@fontsource/dm-sans/latin-700.css";
+@import "@fontsource/instrument-serif/latin-400.css";
+@import "@fontsource/instrument-serif/latin-400-italic.css";

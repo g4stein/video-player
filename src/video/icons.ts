@@ -1,69 +1,48 @@
-/**
- * Darkroom icon set.
- *
- * One hand: 24 × 24 grid, 2 px stroke, square caps, miter joins. Transport glyphs (play, pause) are solid, and
- * active states gain a solid fill. Every icon is `aria-hidden`; its control supplies the accessible name.
- */
-
-const svg = (body: string) =>
-  `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true" focusable="false">${body}</svg>`;
-
-const solid = (d: string, extra = '') => `<path fill="currentColor" stroke="none" ${extra} d="${d}"/>`;
-
-const speaker = '<path d="M3.5 9h3.5l5-4v14l-5-4H3.5z"/>';
-const screen = '<path d="M2.5 4.5h19v15h-19z"/>';
-const castFrame =
-  '<path d="M2.5 8V4.5h19v15H14"/><path d="M2.5 11.5a8 8 0 0 1 8 8" stroke-linecap="butt"/><path d="M2.5 15.5a4 4 0 0 1 4 4" stroke-linecap="butt"/>' +
-  solid('M1.5 18.5h2v2h-2z');
-const airplayFrame = '<path d="M6 17.5H2.5v-13h19v13H18"/>';
-
-export const darkroomIcons = {
-  play: svg(solid('M8 4l13 8-13 8z')),
-  pause: svg(solid('M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z')),
-  restart: svg('<path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 3.5v5h5"/>' + solid('M10 8.75l5.5 3.25-5.5 3.25z')),
-  // Forward; the skin mirrors it for the backward button, and prints the seconds in its middle.
-  seek: svg('<path d="M19.5 12A7.5 7.5 0 1 1 12 4.5h2.5"/><path d="M12.5 1.5l3 3-3 3"/>'),
-
-  'volume-high': svg(speaker + '<path d="M15.5 9.5a3.5 3.5 0 0 1 0 5" stroke-linecap="butt"/><path d="M18 6.5a7.5 7.5 0 0 1 0 11" stroke-linecap="butt"/>'),
-  'volume-low': svg(speaker + '<path d="M15.5 9.5a3.5 3.5 0 0 1 0 5" stroke-linecap="butt"/>'),
-  'volume-off': svg(speaker + '<path d="M16 9.5l5 5M21 9.5l-5 5"/>'),
-
-  'captions-off': svg(
-    '<path d="M2.5 5h19v14h-19z"/><path d="M11.5 10H8v4h3.5M17.5 10H14v4h3.5" stroke-linecap="butt"/>'
+/** Elsewhere: an original 24px icon family with rounded 1.8px strokes. */
+const icon = (body: string) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;
+const solid = (d: string) =>
+  `<path d="${d}" fill="currentColor" stroke="none"/>`;
+const speaker = '<path d="M4 9H7L12 5V19L7 15H4Z"/>';
+export const elsewhereIcons = {
+  play: icon(
+    solid("M9 5.8Q8 5.2 8 6.5V17.5Q8 18.8 9 18.2L19 12.8Q20.5 12 19 11.2Z"),
   ),
-  'captions-on': svg(
-    solid(
-      'M1.5 4h21v16h-21z M7 9v6h4.5v-2H9v-2h2.5V9z M13 9v6h4.5v-2H15v-2h2.5V9z',
-      'fill-rule="evenodd"'
-    )
+  pause: icon('<path d="M8 6V18M16 6V18" stroke-width="4"/>'),
+  restart: icon('<path d="M4 10A8 8 0 1 1 5 17M4 4V10H10"/>'),
+  seek: icon('<path d="M18 7A8 8 0 1 1 12 4H17M14 1L17 4L14 7"/>'),
+  "volume-high": icon(
+    speaker + '<path d="M16 8A6 6 0 0 1 16 16M19 5A10 10 0 0 1 19 19"/>',
   ),
-
-  'fullscreen-enter': svg('<path d="M3.5 9V3.5H9M15 3.5h5.5V9M20.5 15v5.5H15M9 20.5H3.5V15"/>'),
-  'fullscreen-exit': svg('<path d="M9 3.5V9H3.5M20.5 9H15V3.5M15 20.5V15h5.5M3.5 15H9v5.5"/>'),
-
-  'pip-enter': svg(screen + '<path d="M12.5 12.5h6v4h-6z"/>'),
-  'pip-exit': svg(screen + solid('M11.5 11.5h8v6h-8z')),
-
-  'cast-enter': svg(castFrame),
-  'cast-exit': svg(castFrame + solid('M6 7.5h12.5v9H13A10.5 10.5 0 0 0 6 9.5z')),
-
-  'airplay-enter': svg(airplayFrame + '<path d="M12 13l5.5 7h-11z"/>'),
-  'airplay-exit': svg(airplayFrame + solid('M12 12l6.5 8.5h-13z')),
-
-  gear: svg(
-    '<path d="M10.19 5.24V2.67h3.62v2.57A7 7 0 0 1 15.5 5.94l1.81-1.82 2.57 2.57-1.82 1.81a7 7 0 0 1 .7 1.69h2.57v3.62h-2.57a7 7 0 0 1-.7 1.69l1.82 1.81-2.57 2.57-1.81-1.82a7 7 0 0 1-1.69.7v2.57h-3.62v-2.57a7 7 0 0 1-1.69-.7l-1.81 1.82-2.57-2.57 1.82-1.81a7 7 0 0 1-.7-1.69H2.67v-3.62h2.57a7 7 0 0 1 .7-1.69L4.12 6.69l2.57-2.57L8.5 5.94a7 7 0 0 1 1.69-.7z"/><circle cx="12" cy="12" r="3"/>'
+  "volume-low": icon(speaker + '<path d="M16 8A6 6 0 0 1 16 16"/>'),
+  "volume-off": icon(speaker + '<path d="M17 9L22 15M22 9L17 15"/>'),
+  "captions-off": icon(
+    '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 10H7V14H10M17 10H14V14H17"/>',
   ),
-  chevron: svg('<path d="M9 5.5l6.5 6.5L9 18.5"/>'),
-  check: svg('<path d="M4.5 12.5l4.5 4.5 10.5-10.5"/>'),
-  speed: svg('<path d="M4.6 18A8.5 8.5 0 1 1 19.4 18" stroke-linecap="butt"/><path d="M12 13.5l4.5-5"/>' + solid('M10.5 12h3v3h-3z')),
-  // Quality: two square-knob faders.
-  switches: svg('<path d="M3.5 7h9M17.5 7h3M3.5 17h3M11.5 17h9"/><path d="M12.5 4.5h5v5h-5zM6.5 14.5h5v5h-5z"/>'),
-  // Audio track: a waveform.
-  speech: svg('<path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 10.5v3"/>'),
-  // Buffering: a film reel.
-  spinner: svg(
-    '<circle cx="12" cy="12" r="9"/>' +
-      solid('M10.5 10.5h3v3h-3z') +
-      '<g fill="currentColor" stroke="none"><circle cx="12" cy="6.5" r="2"/><circle cx="7.24" cy="14.75" r="2"/><circle cx="16.76" cy="14.75" r="2"/></g>'
+  "captions-on": icon(
+    '<rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 10H7V14H10M17 10H14V14H17" stroke="var(--ew-ink,#141321)"/>',
   ),
+  "fullscreen-enter": icon(
+    '<path d="M4 9V5Q4 4 5 4H9M15 4H19Q20 4 20 5V9M20 15V19Q20 20 19 20H15M9 20H5Q4 20 4 19V15"/>',
+  ),
+  "fullscreen-exit": icon(
+    '<path d="M9 3V8Q9 9 8 9H3M15 3V8Q15 9 16 9H21M21 15H16Q15 15 15 16V21M3 15H8Q9 15 9 16V21"/>',
+  ),
+  "pip-enter": icon(
+    '<rect x="2" y="4" width="20" height="16" rx="4"/><rect x="12" y="11" width="7" height="6" rx="1"/>',
+  ),
+  "pip-exit": icon(
+    '<rect x="2" y="4" width="20" height="16" rx="4"/><rect x="12" y="11" width="7" height="6" rx="1" fill="currentColor"/>',
+  ),
+  gear: icon(
+    '<path d="M5 7H19M5 17H19"/><circle cx="9" cy="7" r="3" fill="var(--ew-surface,#252332)"/><circle cx="15" cy="17" r="3" fill="var(--ew-surface,#252332)"/>',
+  ),
+  chevron: icon('<path d="M9 6L15 12L9 18"/>'),
+  check: icon('<path d="M5 12L10 17L20 7"/>'),
+  speed: icon(
+    '<path d="M4 17A9 9 0 1 1 20 17M12 13L17 8"/><circle cx="12" cy="13" r="1"/>',
+  ),
+  switches: icon('<path d="M5 5H19V19H5Z"/><path d="M9 9H15V15H9Z"/>'),
+  speech: icon('<path d="M4 10V14M8 6V18M12 3V21M16 7V17M20 10V14"/>'),
+  spinner: icon('<path d="M12 3A9 9 0 1 1 3 12"/>'),
 } as const;

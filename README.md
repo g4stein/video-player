@@ -1,79 +1,38 @@
-# Darkroom
+# Elsewhere
 
-A Video.js v10 video skin developed under safelight. Built for the Video.js Skins Design Challenge.
+An immersive, original Video.js v10 skin and showcase. Midnight violet, lilac, acid lime, expressive serif typography and rounded controls create a space for uninterrupted viewing.
 
-## The idea
+The player markup, theme, CSS, rounded icon family and showcase are designed as one coherent experience. Video.js components and the workbench supply the playback and accessibility foundation.
 
-Most custom players float a blurred glass panel over the picture. Darkroom grounds the controls on a solid strip
-of 35 mm film base instead. Its two sprocket rails are real holes the picture shows through, and while the video
-plays the rails roll forward like film through a projector gate. Pause, and the film stops.
+## The interface
 
-Amber, the colour of a darkroom safelight, marks everything you can act on. The timeline is cut into frames, and
-the part you've watched glows from safelight red into amber, as if it had been exposed. Hovering the timeline
-brings up the preview frame in a paper slide mount with its timecode printed on the card, and tooltips are strips
-of masking tape. Because every control sits on a solid strip, the controls keep the same contrast over a white sky
-and a black night scene.
+A floating violet control dock holds round transport keys, time, mute/volume, captions, settings and fullscreen. An undulating progress trail reflects the actual playback position, with a floating playhead and frame preview. It is decorative timeline geometry, not audio analysis. An orbital initial play key invites the first interaction.
 
-## What's in the player
+Settings expose actual available quality, speed, audio and caption options. Video.js supplies keyboard navigation, translated control labels, a status announcer, gestures, buffering and error handling. Controls have 44px targets, a consistent visible focus ring and opaque backgrounds. Reduced motion disables decorative and control motion. Phone showcase layouts reserve separate space for the image and dock.
 
-- Play/pause, seek back and forward 10 s, mute with an inline volume slider, elapsed / duration counter
-- Framed time slider with buffer, chapters and a thumbnail preview
-- Captions toggle, and a settings menu for quality, audio track, speed and captions
-- Picture-in-picture, Cast and AirPlay (each appears when the browser supports it), fullscreen
-- Error dialog, buffering reel, and on-screen indicators for volume, seeking and toggles
-- Every hotkey and gesture from the Video.js skins: Space/K, J/L, arrows, M, C, F, I, < >, 0–9, Home/End
-
-## Accessibility
-
-- Text is 16.4:1 and the amber accent 10.8:1 on the strip, and 14.4:1 and 9.5:1 with a white frame behind it.
-  Slider tracks are at least 3.4:1.
-- Touch targets are 44 px, and the center transport appears on touch players wide enough for it.
-- One focus ring everywhere: a 2 px amber outline with a dark halo, on buttons, slider thumbs and menu items.
-- With `prefers-reduced-motion`, the film stands still, menus cut instead of sliding, and the spinner stops.
-- `prefers-contrast: more`, reduced transparency and forced colours are handled.
-- No hardcoded UI text: every label comes from Video.js i18n, and the layout mirrors for right-to-left languages.
-
-See [`design/spec.md`](design/spec.md) for the full spec: tokens, breakpoints, icon rules and motion.
-
-## Develop
+## Run
 
 ```sh
 npm install
 npm run dev
+npm run typecheck
+npm run build
 ```
 
-- `/` is the showcase page: the player, a dark/bright footage switch, a size switch and the design notes.
-- `/workbench.html` is the Video.js workbench: any width, aspect ratio, language, direction and playback setting.
+`/` shows the experience. `/workbench.html` tests widths, aspect ratios, languages, RTL and preferences. Skin source is entirely in `src/`; it has no dependency on the showcase.
 
-## Use your own Mux video
+## Your Mux video
 
-Set `MUX_PLAYBACK_ID` in [`apps/preview/src/showcase/media.ts`](apps/preview/src/showcase/media.ts) to your
-asset's public playback ID. It becomes the first reel on the showcase. To try one without editing code, open
-`/?playbackId=<your id>`.
+Set `MUX_PLAYBACK_ID` in `apps/preview/src/showcase/media.ts` to your public playback ID, or use `?playbackId=YOUR_ID`. The bundled demo assets belong to their respective providers; use your own asset for the challenge's Mux bonus.
 
-## Deploy
+## Deployment
 
 ```sh
-npm run deploy vercel   # or: netlify, cloudflare
+npm run deploy vercel
 ```
 
-The host's CLI signs you in on the first run and prints the public URL. The build uses relative URLs, so `dist/`
-also works on GitHub Pages or any static host.
+Vercel-connected GitHub branches may create previews automatically. A challenge submission must use a publicly accessible URL without sign-in.
 
-## Where things live
+## Credits and licensing
 
-- `src/`: the skin, and only the skin. Move it into any Video.js v10 HTML app.
-  - `src/video/skin.html`: markup. `src/video/skin.css`: styles. `src/video/icons.ts`: the icon set.
-  - `src/styles/themes/darkroom.css`: the theme tokens.
-- `apps/preview/`: the showcase page and the workbench.
-- `design/spec.md`: the design spec.
-
-## Credits
-
-Built on [Video.js v10](https://videojs.org/). Demo footage streams from [Mux](https://www.mux.com/): the NASA
-Cosmic Dawn trailer and Big Buck Bunny (© Blender Foundation, CC BY 3.0). Fonts: IBM Plex Sans Condensed and IBM
-Plex Mono (SIL Open Font License). Icons drawn for this skin.
-
-## License
-
-Apache License 2.0. See [`LICENSE`](LICENSE).
+Video.js v10 / Mux. NASA Cosmic Dawn trailer and Big Buck Bunny, © Blender Foundation, CC BY 3.0. Fonts: DM Sans and Instrument Serif, SIL Open Font License. Original rounded SVG icons. Skin source: Apache License 2.0; see LICENSE. Third-party footage is not relicensed by this project.
