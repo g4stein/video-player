@@ -51,7 +51,7 @@ svg {
   stroke-linejoin: round;
 }
 a:focus-visible,
-button:focus-visible,
+button:not(.ew-button):focus-visible,
 summary:focus-visible {
   outline: 2px solid var(--lime);
   outline-offset: 6px;
@@ -933,14 +933,11 @@ footer svg {
 @container showcase-stage (width < 36rem) {
   .stage .ew-player:not([data-fullscreen]) {
     aspect-ratio: auto;
-    height: calc(100cqw * 9 / 16 + 120px);
+    height: calc(100cqw * 9 / 16 + 156px);
   }
   .stage .ew-player:not([data-fullscreen]) > mux-video,
   .stage .ew-player:not([data-fullscreen]) > .ew-poster {
-    height: calc(100% - 120px);
-  }
-  .stage .ew-center {
-    top: calc((100% - 120px) / 2);
+    height: calc(100% - 156px);
   }
 }
 @media (min-width: 1600px) {
@@ -1270,4 +1267,20 @@ footer svg {
 .view-tools #theatre {
   min-width: 44px;
   justify-content: center;
+}
+
+.trail-illustration > div {
+  height: 6px;
+  position: absolute;
+  inset: 24px 0 auto;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #973fff, #e1afff 55%, #71658e 55%);
+}
+.trail-illustration i {
+  display: none;
+}
+.trail-illustration > span {
+  background: #fff;
+  box-shadow: 0 0 12px #be7aff;
+  border: 0;
 }

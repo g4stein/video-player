@@ -1,14 +1,14 @@
 # Elsewhere
 
-An immersive, original Video.js v10 skin and showcase. Midnight violet, lilac, acid lime, expressive serif typography and rounded controls create a space for uninterrupted viewing.
+An immersive, original Video.js v10 skin and showcase. Midnight violet, lilac, expressive serif typography and rounded glass controls create a space for uninterrupted viewing.
 
 The player markup, theme, CSS, rounded icon family and showcase are designed as one coherent experience. Video.js components and the workbench supply the playback and accessibility foundation.
 
 ## The interface
 
-A floating violet control dock holds round transport keys, time, mute/volume, captions, settings and fullscreen. An undulating progress trail reflects the actual playback position, with a floating playhead and frame preview. It is decorative timeline geometry, not audio analysis. An orbital initial play key invites the first interaction.
+A floating violet glass dock holds glossy back/play/forward keys, time, a smooth luminous seek bar, mute/volume, captions, settings and fullscreen. Its white playhead and gradient fill reflect the actual playback position, with frame previews on hover. All transport controls sit in the dock, with a visible gap below it. The dock uses one row on desktop and two compact rows on phones.
 
-Settings expose actual available quality, speed, audio and caption options. Video.js supplies keyboard navigation, translated control labels, a status announcer, gestures, buffering and error handling. Controls have 44px targets, a consistent visible focus ring and opaque backgrounds. Reduced motion disables decorative and control motion. Phone showcase layouts reserve separate space for the image and dock.
+Settings expose actual available quality, speed, audio and caption options. Video.js supplies keyboard navigation, translated control labels, a status announcer, gestures, buffering and error handling. Controls have 44px targets, a consistent visible focus ring and contrast-preserving glass surfaces with opaque preference fallbacks. Reduced motion disables decorative and control motion. Phone showcase layouts reserve separate space for the image and dock.
 
 ## Run
 

@@ -35,7 +35,7 @@ export const elsewhereIcons = {
     '<rect x="2" y="4" width="20" height="16" rx="4"/><rect x="12" y="11" width="7" height="6" rx="1" fill="currentColor"/>',
   ),
   gear: icon(
-    '<path d="M5 7H19M5 17H19"/><circle cx="9" cy="7" r="3" fill="var(--ew-surface,#252332)"/><circle cx="15" cy="17" r="3" fill="var(--ew-surface,#252332)"/>',
+    '<path d="M10 3h4l.7 2.3 2 .9 2.2-.6 2 3.4-1.6 1.7v2.6L21 15l-2 3.4-2.2-.6-2 .9L14 21h-4l-.7-2.3-2-.9-2.2.6L3 15l1.6-1.7v-2.6L3 9l2-3.4 2.2.6 2-.9Z"/><circle cx="12" cy="12" r="3.1"/>',
   ),
   chevron: icon('<path d="M9 6L15 12L9 18"/>'),
   check: icon('<path d="M5 12L10 17L20 7"/>'),

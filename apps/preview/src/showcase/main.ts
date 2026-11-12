@@ -155,22 +155,13 @@ theatre.addEventListener("click", () => {
   const enabled = document.body.classList.toggle("theatre-mode");
   theatre.setAttribute("aria-pressed", String(enabled));
   if (enabled)
-    document
-      .getElementById("screening")!
-      .scrollIntoView({
-        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-          ? "instant"
-          : "smooth",
-        block: "start",
-      });
+    document.getElementById("screening")!.scrollIntoView({
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+      block: "start",
+    });
 });
-
-const trail = document.getElementById("illustrated-trail")!;
-for (let i = 0; i < 48; i++) {
-  const tick = document.createElement("i");
-  tick.style.setProperty("--h", `${8 + Math.sin(i * 0.23) ** 2 * 32}px`);
-  trail.append(tick);
-}
 
 // A small amount of spatial response, disabled for reduced motion and touch.
 const hero = document.querySelector<HTMLElement>(".hero")!;

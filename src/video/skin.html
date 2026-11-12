@@ -43,29 +43,22 @@
             ><media-tooltip-label></media-tooltip-label
             ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
         ></media-controls-group>
-        <media-controls-group class="ew-center"
-          ><media-play-button
-            id="ew-center-play"
-            class="ew-button ew-play ew-orb"
-            ><media-icon
-              family="elsewhere"
-              name="play"
-              class="ew-icon is-play"
-            ></media-icon
-            ><media-icon
-              family="elsewhere"
-              name="pause"
-              class="ew-icon is-pause"
-            ></media-icon
-            ><media-icon
-              family="elsewhere"
-              name="restart"
-              class="ew-icon is-restart"
-            ></media-icon></media-play-button
-          ><span class="ew-orbit" aria-hidden="true"></span
-        ></media-controls-group>
+
         <media-controls-group class="ew-dock">
           <media-controls-group class="ew-transport"
+            ><media-seek-button
+              seconds="-10"
+              id="ew-seek--10"
+              class="ew-button ew-skip"
+              ><media-icon
+                family="elsewhere"
+                name="seek"
+                class="ew-icon backward"
+              ></media-icon
+              ><span aria-hidden="true">10</span></media-seek-button
+            ><media-tooltip trigger="ew-seek--10" side="top" class="ew-tooltip"
+              ><media-tooltip-label></media-tooltip-label
+              ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
             ><media-play-button id="ew-play" class="ew-button ew-play"
               ><media-icon
                 family="elsewhere"
@@ -86,19 +79,6 @@
               ><media-tooltip-label></media-tooltip-label
               ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
             ><media-seek-button
-              seconds="-10"
-              id="ew-seek--10"
-              class="ew-button ew-skip"
-              ><media-icon
-                family="elsewhere"
-                name="seek"
-                class="ew-icon backward"
-              ></media-icon
-              ><span aria-hidden="true">10</span></media-seek-button
-            ><media-tooltip trigger="ew-seek--10" side="top" class="ew-tooltip"
-              ><media-tooltip-label></media-tooltip-label
-              ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
-            ><media-seek-button
               seconds="10"
               id="ew-seek-10"
               class="ew-button ew-skip"
@@ -112,6 +92,28 @@
               ><media-tooltip-label></media-tooltip-label
               ><media-tooltip-shortcut></media-tooltip-shortcut
             ></media-tooltip>
+            <media-time-group class="ew-time"
+              ><media-time type="current" class="ew-time-current"></media-time
+              ><media-time-separator></media-time-separator
+              ><media-time type="duration" class="ew-time-duration"></media-time
+            ></media-time-group>
+            <div class="ew-seek-row">
+              <media-time-slider class="ew-timeline"
+                ><media-slider-track class="ew-trail"
+                  ><media-slider-buffer></media-slider-buffer
+                  ><media-slider-fill></media-slider-fill></media-slider-track
+                ><media-slider-thumb class="ew-playhead"></media-slider-thumb
+                ><media-slider-preview class="ew-preview"
+                  ><div class="ew-preview-card">
+                    <media-slider-thumbnail
+                      ><img class="ew-thumbnail-image" alt=""
+                    /></media-slider-thumbnail>
+                    <div>
+                      <media-slider-value type="pointer"></media-slider-value
+                      ><media-time-slider-chapter-title></media-time-slider-chapter-title>
+                    </div></div></media-slider-preview
+              ></media-time-slider>
+            </div>
             <div class="ew-volume">
               <media-mute-button id="ew-mute" class="ew-button ew-mute"
                 ><media-icon
@@ -140,12 +142,7 @@
                 ><media-slider-thumb></media-slider-thumb
               ></media-volume-slider>
             </div>
-            <media-time-group class="ew-time"
-              ><media-time type="current" class="ew-time-current"></media-time
-              ><media-time-separator></media-time-separator
-              ><media-time type="duration" class="ew-time-duration"></media-time
-            ></media-time-group>
-            <div class="ew-transport-spacer"></div>
+
             <media-captions-button
               id="ew-captions"
               class="ew-button ew-captions"
@@ -359,23 +356,6 @@
               ><media-tooltip-shortcut></media-tooltip-shortcut
             ></media-tooltip>
           </media-controls-group>
-          <div class="ew-seek-row">
-            <media-time-slider class="ew-timeline"
-              ><media-slider-track class="ew-trail"
-                ><media-slider-buffer></media-slider-buffer
-                ><media-slider-fill></media-slider-fill></media-slider-track
-              ><media-slider-thumb class="ew-playhead"></media-slider-thumb
-              ><media-slider-preview class="ew-preview"
-                ><div class="ew-preview-card">
-                  <media-slider-thumbnail
-                    ><img class="ew-thumbnail-image" alt=""
-                  /></media-slider-thumbnail>
-                  <div>
-                    <media-slider-value type="pointer"></media-slider-value
-                    ><media-time-slider-chapter-title></media-time-slider-chapter-title>
-                  </div></div></media-slider-preview
-            ></media-time-slider>
-          </div>
         </media-controls-group> </media-tooltip-group
     ></media-controls-content>
   </media-controls>

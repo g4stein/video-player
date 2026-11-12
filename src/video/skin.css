@@ -115,15 +115,20 @@
         background: #ffffff16;
       }
       .ew-play:hover {
-        background: var(--ew-paper);
-        color: var(--ew-ink);
+        background: var(--ew-play-surface);
+        color: var(--ew-paper);
+        box-shadow:
+          var(--ew-play-shadow),
+          0 0 0 4px #bc8aff22;
       }
     }
     .ew-play {
-      width: 52px;
-      height: 52px;
-      background: var(--ew-lime);
-      color: var(--ew-ink);
+      width: 60px;
+      height: 60px;
+      border: 1px solid #d8baff99;
+      background: var(--ew-play-surface);
+      color: var(--ew-paper);
+      box-shadow: var(--ew-play-shadow);
     }
     .ew-play .is-pause,
     .ew-play .is-restart,
@@ -207,66 +212,23 @@
       border: 1px solid #ffffff20;
       pointer-events: auto;
     }
-    .ew-center {
-      position: absolute;
-      left: 50%;
-      top: 43%;
-      translate: -50% -50%;
-      display: grid;
-      place-items: center;
-      pointer-events: none;
-    }
-    .ew-orb {
-      width: 88px;
-      height: 88px;
-      background: var(--ew-paper);
-      color: var(--ew-ink);
-      pointer-events: auto;
-      z-index: 1;
-      box-shadow: 0 8px 40px #0004;
-    }
-    .ew-orb .ew-icon {
-      width: 30px;
-      height: 30px;
-    }
-    .ew-orbit {
-      transition: rotate var(--ew-motion);
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border: 1px solid #ffffff50;
-      border-radius: 50%;
-      rotate: -30deg;
-      box-shadow: 0 0 0 16px #ffffff0a;
-    }
-    .ew-center:has(.ew-orb:is(:hover, :focus-visible)) .ew-orbit {
-      rotate: 35deg;
-    }
-    .ew-orbit::before {
-      content: "";
-      position: absolute;
-      left: 11px;
-      top: 11px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--ew-lime);
-      box-shadow: 0 0 12px #dcf98a88;
-    }
-    .ew-center:has(.ew-play[data-started]) {
-      display: none;
-    }
     .ew-dock {
       position: absolute;
-      inset: auto 24px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding: 12px 16px 10px;
-      background: var(--ew-surface);
-      border: 1px solid #d7cfff30;
-      border-radius: 28px;
-      box-shadow: var(--ew-shadow);
+      inset: auto var(--ew-dock-gap) var(--ew-dock-gap);
+      width: calc(100% - var(--ew-dock-gap) * 2);
+      max-width: var(--ew-dock-width);
+      bottom: max(
+        var(--ew-dock-gap),
+        calc(env(safe-area-inset-bottom, 0px) + 12px)
+      );
+      margin-inline: auto;
+      padding: 16px 20px;
+      border: 1px solid var(--ew-glass-edge);
+      border-radius: var(--ew-radius);
+      background: var(--ew-glass);
+      backdrop-filter: blur(28px) saturate(145%);
+      -webkit-backdrop-filter: blur(28px) saturate(145%);
+      box-shadow: var(--ew-glass-shadow);
       pointer-events: auto;
       transition:
         opacity var(--ew-motion),
@@ -275,15 +237,22 @@
     .ew-transport {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       min-width: 0;
     }
     .ew-transport > .ew-play {
-      margin-inline-end: 8px;
+      margin-inline-end: 0;
     }
-    .ew-transport-spacer {
-      flex: 1;
-      min-width: 0;
+    .ew-skip {
+      border: 1px solid #c3b6ff44;
+      background: linear-gradient(150deg, #a593ef33, #2b225666);
+      box-shadow: inset 0 1px 2px #ffffff30;
+    }
+    #ew-settings {
+      border-radius: 16px;
+      background: linear-gradient(150deg, #b098ff44, #53407855);
+      border-color: #d8c7ff44;
+      box-shadow: inset 0 1px 2px #ffffff28;
     }
     .ew-skip span {
       grid-area: 1/1;
@@ -298,7 +267,9 @@
     .ew-volume {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
+      padding-inline-start: 10px;
+      border-inline-start: 1px solid var(--ew-line);
     }
     .ew-volume-slider {
       display: flex;
@@ -306,21 +277,21 @@
       position: relative;
       width: 64px;
       height: 44px;
-      margin-inline-end: 14px;
+      margin-inline-end: 6px;
       cursor: pointer;
     }
     .ew-volume-slider media-slider-track {
-      height: 3px;
+      height: 4px;
       position: absolute;
       inset-inline: 0;
-      background: #8b859b;
+      background: #a194c1;
       border-radius: 4px;
     }
     .ew-volume-slider media-slider-fill {
       position: absolute;
       inset: 0;
       right: calc(100% - var(--media-slider-fill, 0%));
-      background: var(--ew-paper);
+      background: var(--ew-progress);
       border-radius: inherit;
     }
     .ew-volume-slider media-slider-thumb {
@@ -335,21 +306,22 @@
     .ew-time {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       flex-shrink: 0;
       white-space: nowrap;
-      font-size: 11px;
+      margin-inline: 4px 6px;
+      font-size: 12px;
       font-variant-numeric: tabular-nums;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
     }
     .ew-time-duration,
     media-time-separator {
       color: var(--ew-muted);
     }
     .ew-seek-row {
-      width: 100%;
-      min-width: 0;
-      padding-inline: 5px;
+      flex: 1;
+      min-width: 70px;
+      padding-inline: 8px;
     }
     .ew-timeline {
       position: relative;
@@ -362,7 +334,9 @@
     }
     .ew-trail {
       position: absolute;
-      inset: 5px 0;
+      inset-inline: 0;
+      height: 6px;
+      border-radius: 99px;
     }
     .ew-trail::before,
     .ew-trail media-slider-buffer,
@@ -370,32 +344,34 @@
       content: "";
       position: absolute;
       inset: 0;
-      mask: var(--ew-trail-mask) center/100% 100%;
-      -webkit-mask: var(--ew-trail-mask) center/100% 100%;
+      border-radius: inherit;
       pointer-events: none;
     }
     .ew-trail::before {
-      background: #8b859b;
+      background: #b5a5d4;
+      opacity: 0.9;
     }
     .ew-trail media-slider-buffer {
-      background: #b0aabc;
+      background: #c4b3e8;
       clip-path: inset(0 calc(100% - var(--media-slider-buffer, 0%)) 0 0);
     }
     .ew-trail media-slider-fill {
-      background: var(--ew-lime);
+      background: var(--ew-progress);
       clip-path: inset(0 calc(100% - var(--media-slider-fill, 0%)) 0 0);
     }
     .ew-playhead {
       position: absolute;
       z-index: 2;
       left: var(--media-slider-fill, 0%);
-      height: 16px;
-      width: 16px;
-      background: var(--ew-lime);
-      border: 3px solid var(--ew-ink);
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
+      background: var(--ew-paper);
+      border: 2px solid #fdf4ff;
       translate: -50% 0;
-      box-shadow: 0 0 0 1px var(--ew-lime);
+      box-shadow:
+        0 0 8px #e6afff,
+        0 0 18px #9d39ff88;
       transition: scale var(--ew-motion);
     }
     .ew-timeline[data-interactive] .ew-playhead {
@@ -505,12 +481,14 @@
       overflow: hidden !important;
       padding: 0;
       border: 1px solid #ffffff30;
-      border-radius: 22px;
-      background: var(--ew-surface);
+      border-radius: 26px;
+      background: var(--ew-glass);
+      backdrop-filter: blur(28px) saturate(145%);
+      -webkit-backdrop-filter: blur(28px) saturate(145%);
       color: var(--ew-paper);
-      box-shadow: var(--ew-shadow);
-      --media-popover-side-offset: 16px;
-      --media-popup-side-offset: 16px;
+      box-shadow: var(--ew-glass-shadow);
+      --media-popover-side-offset: 40px;
+      --media-popup-side-offset: 40px;
       transition:
         opacity var(--ew-motion),
         height var(--ew-motion),
@@ -547,7 +525,8 @@
       font-weight: 600;
       padding: 9px 12px 13px;
       font-size: 12px;
-      color: var(--ew-muted);
+      color: var(--ew-paper);
+      font-size: 15px;
     }
     .ew-menu-item,
     .ew-menu-back {
@@ -577,7 +556,7 @@
     }
     .ew-menu-item[data-highlighted],
     .ew-menu-back[data-highlighted] {
-      background: #ffffff12;
+      background: #a895ff28;
     }
     .ew-menu-item:focus-visible,
     .ew-menu-back:focus-visible {
@@ -585,7 +564,7 @@
       outline-offset: -2px;
     }
     .ew-menu-item[aria-checked="true"] {
-      background: #dcf98a15;
+      background: #ba7fff24;
       color: var(--ew-lime);
     }
     .ew-menu-item:is(
@@ -663,9 +642,6 @@
     .ew-buffer:not([data-visible]) {
       display: none;
     }
-    :scope:has(.ew-buffer[data-visible]) .ew-center {
-      display: none;
-    }
     .ew-dialog-backdrop {
       position: absolute;
       inset: 0;
@@ -739,30 +715,40 @@
     .ew-status:not([data-open]) {
       display: none;
     }
-    @container media-root (width < 48rem) {
-      .ew-volume-slider {
-        display: none;
+    @container media-root (width < 64rem) {
+      .ew-dock {
+        padding: 12px 16px;
       }
       .ew-transport {
-        gap: 3px;
+        gap: 6px;
       }
-      .ew-dock {
-        inset-inline: 16px;
-        bottom: 16px;
-        padding: 10px 12px 6px;
-        border-radius: 24px;
+      .ew-play {
+        width: 52px;
+        height: 52px;
       }
-      .ew-top {
-        inset: 16px 16px auto;
+      .ew-volume-slider {
+        width: 48px;
       }
       .ew-time {
-        font-size: 10px;
+        font-size: 11px;
       }
-      .ew-transport > .ew-play {
-        margin-inline-end: 2px;
+      .ew-volume {
+        padding-inline-start: 5px;
       }
     }
-    @container media-root (width < 36rem) {
+    @container media-root (width < 52rem) {
+      .ew-menu {
+        --media-popover-side-offset: 82px;
+        --media-popup-side-offset: 82px;
+      }
+      .ew-dock {
+        border-radius: 32px;
+        padding: 12px 16px;
+      }
+      .ew-transport {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
       .ew-skip {
         display: none;
       }
@@ -770,25 +756,45 @@
         width: 44px;
         height: 44px;
       }
-      .ew-orb {
-        width: 70px;
-        height: 70px;
+      .ew-seek-row {
+        min-width: 70px;
       }
-      .ew-orbit {
-        width: 96px;
-        height: 96px;
+      .ew-time {
+        margin-inline: 0;
+        font-size: 11px;
       }
       .ew-time-duration,
       media-time-separator {
         display: none;
       }
-      .ew-time {
-        margin-inline-start: 5px;
+      .ew-volume {
+        width: calc(100% - 156px);
+        padding-inline-start: 0;
+        border-inline-start: 0;
       }
+      .ew-volume-slider {
+        width: 64px;
+        max-width: calc(100% - 52px);
+        margin-inline-end: 0;
+      }
+      .ew-top {
+        inset: 16px 16px auto;
+      }
+    }
+    @container media-root (width < 36rem) {
       .ew-dock {
-        inset-inline: 10px;
-        bottom: 10px;
-        padding: 8px 8px 4px;
+        --ew-dock-gap: 22px;
+        padding: 12px;
+        border-radius: 30px;
+      }
+      .ew-transport {
+        gap: 6px;
+      }
+      .ew-captions {
+        display: none;
+      }
+      .ew-volume {
+        width: calc(100% - 100px);
       }
       .ew-top {
         inset: 12px 12px auto;
@@ -797,27 +803,17 @@
         font-size: 9px;
         padding: 7px 10px;
       }
-      .ew-center {
-        top: 38%;
-      }
-      .ew-timeline {
-        height: 44px;
-      }
-      .ew-trail {
-        inset-block: 3px;
-      }
-      .ew-captions {
-        display: none;
-      }
     }
     @container media-root (width < 19rem) {
+      .ew-dock {
+        --ew-dock-gap: 14px;
+        padding: 10px;
+      }
+      .ew-volume-slider {
+        width: 36px;
+      }
       .ew-time {
-        position: absolute;
-        bottom: calc(100% + 10px);
-        inset-inline-start: 0;
-        padding: 6px 10px;
-        border-radius: 99px;
-        background: var(--ew-ink);
+        font-size: 10px;
       }
       .ew-menu {
         min-width: 190px;
@@ -830,16 +826,16 @@
       .ew-dock {
         translate: none !important;
       }
-      .ew-orbit {
-        rotate: 0deg;
-      }
       .ew-button:active {
         scale: 1;
       }
     }
-    @media (prefers-reduced-transparency: reduce) {
-      .ew-dock {
+    @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+      .ew-dock,
+      .ew-menu {
         background: var(--ew-surface);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
       }
     }
     @media (forced-colors: active) {
@@ -861,8 +857,19 @@
       .ew-trail::before {
         background: CanvasText;
       }
-      .ew-orbit {
-        display: none;
+      .ew-trail media-slider-fill,
+      .ew-volume-slider media-slider-fill {
+        background: Highlight;
+      }
+      .ew-dock,
+      .ew-menu,
+      .ew-play,
+      .ew-skip,
+      #ew-settings {
+        background: Canvas;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
       }
       .ew-play {
         background: Highlight;
