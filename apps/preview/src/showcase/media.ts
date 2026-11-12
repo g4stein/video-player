@@ -19,7 +19,7 @@ const DEMO_REELS: Reel[] = [
     label: 'Dark reel',
     note: 'NASA Cosmic Dawn: night skies, clean rooms, chapters and captions.',
     playbackId: '83EzHOvVzVN01AsrD01BCpiH02Pj3S8mfzBOu101w2nHC5s',
-    posterTime: 69,
+    posterTime: 32,
     chapters: './cosmic-dawn-chapters.vtt',
   },
   {

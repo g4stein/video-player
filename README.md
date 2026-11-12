@@ -4,15 +4,18 @@ A Video.js v10 video skin developed under safelight. Built for the Video.js Skin
 
 ## The idea
 
-Most custom players float a blurred glass panel over the picture. Darkroom grounds the controls on a solid strip
-of 35 mm film base instead. Its two sprocket rails are real holes the picture shows through, and while the video
-plays the rails roll forward like film through a projector gate. Pause, and the film stops.
+An editorial moving-image archive, with warm paper, oversized typography and a dark screening room.
+The player has a real photographic contact strip: twelve frames sampled from the active Mux video
+begin in monochrome and develop into color as you watch. The same Video.js time slider handles
+pointer and keyboard seeking. Hovering reveals a photographic slide mount with the exact time.
 
-Amber, the colour of a darkroom safelight, marks everything you can act on. The timeline is cut into frames, and
-the part you've watched glows from safelight red into amber, as if it had been exposed. Hovering the timeline
-brings up the preview frame in a paper slide mount with its timecode printed on the card, and tooltips are strips
-of masking tape. Because every control sits on a solid strip, the controls keep the same contrast over a white sky
-and a black night scene.
+Vermilion marks the transport keys and playhead. Solid surfaces keep controls readable as the picture
+changes; sprocket rails advance only during playback. On phones, the showcase gives the picture and
+control dock separate space. A lights-out switch dims the surrounding archive.
+
+The contact-strip module lives in `src/video/contact-strip.ts`. It reads the active Mux source and duration;
+non-Mux media retains the working timeline without photographic samples. No credentials or canvas
+readback are required. Sampled images are decorative and excluded from the accessibility tree.
 
 ## What's in the player
 
@@ -25,10 +28,10 @@ and a black night scene.
 
 ## Accessibility
 
-- Text is 16.4:1 and the amber accent 10.8:1 on the strip, and 14.4:1 and 9.5:1 with a white frame behind it.
+- Opaque control surfaces keep contrast independent of the footage.
   Slider tracks are at least 3.4:1.
 - Touch targets are 44 px, and the center transport appears on touch players wide enough for it.
-- One focus ring everywhere: a 2 px amber outline with a dark halo, on buttons, slider thumbs and menu items.
+- One focus ring everywhere: a 2 px vermilion outline with a dark halo, on buttons, slider thumbs and menu items.
 - With `prefers-reduced-motion`, the film stands still, menus cut instead of sliding, and the spinner stops.
 - `prefers-contrast: more`, reduced transparency and forced colours are handled.
 - No hardcoded UI text: every label comes from Video.js i18n, and the layout mirrors for right-to-left languages.

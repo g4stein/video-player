@@ -1,3 +1,4 @@
+import './contact-strip';
 import '../styles/video/darkroom.css';
 import './skin.css';
 import '@videojs/html/i18n';

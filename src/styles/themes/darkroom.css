@@ -8,22 +8,23 @@
 @layer base.preset {
   .media-skin[data-theme="darkroom"] {
     /* Palette. */
-    --dr-base: #110d0b;
-    --dr-base-rgb: 17 13 11;
+    --dr-base: #171714;
+    --dr-base-rgb: 23 23 20;
     --dr-paper: #f4ebe1;
     --dr-paper-rgb: 244 235 225;
     --dr-paper-dim: #b9a99b;
-    --dr-amber: var(--media-accent-color, #ffb340);
-    --dr-safelight: #ff4d2e;
+    --dr-amber: var(--media-accent-color, #ff603b);
+    --dr-safelight: #ff603b;
     --dr-ink: #1a120c;
 
     /* Surfaces. */
-    --dr-strip: rgb(var(--dr-base-rgb) / 0.94);
+    --dr-strip: #171714;
     --dr-chip: rgb(var(--dr-base-rgb) / 0.82);
     --dr-hairline: rgb(var(--dr-paper-rgb) / 0.12);
     --dr-hover: rgb(var(--dr-paper-rgb) / 0.1);
     --dr-pressed: rgb(var(--dr-paper-rgb) / 0.16);
-    --dr-shadow-popup: 0 18px 40px -12px rgb(0 0 0 / 0.7), 0 2px 6px rgb(0 0 0 / 0.4);
+    --dr-shadow-popup:
+      0 18px 40px -12px rgb(0 0 0 / 0.7), 0 2px 6px rgb(0 0 0 / 0.4);
 
     /* Type. */
     --dr-font-sans: var(
@@ -37,14 +38,16 @@
       Arial,
       sans-serif
     );
-    --dr-font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    --dr-font-mono:
+      "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas,
+      monospace;
 
     /* Geometry. */
-    --dr-button: calc(var(--media-spacing) * 10);
+    --dr-button: calc(var(--media-spacing) * 11);
     --dr-play: calc(var(--media-spacing) * 11);
     --dr-icon: 24px;
-    --dr-radius-control: calc(var(--media-spacing) * 2.5);
-    --dr-radius-play: calc(var(--media-spacing) * 3);
+    --dr-radius-control: 3px;
+    --dr-radius-play: 3px;
     --dr-rail: calc(var(--media-spacing) * 2.5);
     --dr-perf-pitch: 18px;
     --dr-frame: 22px;
