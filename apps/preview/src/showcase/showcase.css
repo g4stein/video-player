@@ -338,7 +338,7 @@ button:active {
   display: flex;
   align-items: center;
   gap: 7px;
-  min-height: 36px;
+  min-height: 44px;
   border: 0;
   background: none;
   color: #c4bed7;
@@ -467,7 +467,7 @@ button:active {
 #size-switch button {
   font-size: 9px;
   color: var(--muted);
-  min-height: 30px;
+  min-height: 44px;
   border-radius: 99px;
   padding: 6px 12px;
   border: 0;
@@ -933,14 +933,14 @@ footer svg {
 @container showcase-stage (width < 36rem) {
   .stage .ew-player:not([data-fullscreen]) {
     aspect-ratio: auto;
-    height: calc(100cqw * 9 / 16 + 112px);
+    height: calc(100cqw * 9 / 16 + 120px);
   }
   .stage .ew-player:not([data-fullscreen]) > mux-video,
   .stage .ew-player:not([data-fullscreen]) > .ew-poster {
-    height: calc(100% - 112px);
+    height: calc(100% - 120px);
   }
   .stage .ew-center {
-    top: calc((100% - 112px) / 2);
+    top: calc((100% - 120px) / 2);
   }
 }
 @media (min-width: 1600px) {
@@ -1100,7 +1100,7 @@ footer svg {
   }
   #size-switch button {
     font-size: 8px;
-    min-height: 36px;
+    min-height: 44px;
     padding: 7px 11px;
   }
   .destinations {
@@ -1265,4 +1265,9 @@ footer svg {
 .hero-spark {
   width: clamp(30px, 4.2vw, 62px);
   height: clamp(30px, 4.2vw, 62px);
+}
+
+.view-tools #theatre {
+  min-width: 44px;
+  justify-content: center;
 }

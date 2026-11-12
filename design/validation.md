@@ -23,3 +23,17 @@ Validated against the production Vite bundle in headless Chromium on 12 November
 The browser harness used curl for HTTPS requests through the environment's trusted proxy, preserving certificate validation. This is test infrastructure outside the product. Safari, Firefox and physical mobile devices have not been tested in this session.
 
 Preview images are in `design/previews/`.
+
+## Pre-merge audit
+
+- Fixed the mobile Theatre button's missing accessible name with an explicit label.
+- Enlarged seek hit areas to 44px and viewing controls to at least 44px; reserved additional phone dock space.
+- axe-core found no automatic violations in the final desktop, settings-menu, phone and error-dialog scans. Its incomplete checks for gradients, captions and the dynamically mounted menu relationship required manual review.
+- Measured contrast: control text 13.85:1, muted control text 8.50:1, seek track 4.34:1, page muted text against its violet surface 6.07:1, and lilac-card secondary text 4.85:1.
+- Confirmed the settings trigger's aria-controls target exists while its menu is open.
+- Keyboard focus was verified on the actual interactive slider thumb and play key; ArrowRight on the timeline thumb advanced media from 30 to 31 seconds.
+- Ended state announces Replay, shows the replay icon and restarts playback.
+- Captions toggle selected the English subtitle track in showing mode.
+- Simulated a failed media request: the error dialog opened with a meaningful title; its accessibility scan reported no automatic violations.
+- No browser JavaScript errors occurred during this audit.
+- `npm audit --omit=dev` reported zero known production dependency vulnerabilities.
