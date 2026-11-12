@@ -17,7 +17,7 @@ const details = (reel: Reel) =>
         title: "Cosmic Dawn",
         category: "DOCUMENTARY",
         note: "A journey to the edge of what we know. NASA / Cosmic Dawn trailer.",
-        subtitle: "A little further into the unknown.",
+        subtitle: "Into the unknown.",
         mood: "WONDER",
       }
     : reel.id === "bright"
@@ -25,7 +25,7 @@ const details = (reel: Reel) =>
           title: "Big Buck Bunny",
           category: "ANIMATION",
           note: "A brighter kind of escape. © Blender Foundation / CC BY 3.0.",
-          subtitle: "A world with a lighter side.",
+          subtitle: "A lighter world.",
           mood: "DELIGHT",
         }
       : {
@@ -143,45 +143,3 @@ function selectSize(size: string) {
 }
 document.getElementById("size-switch")!.append(...sizes);
 selectSize("desktop");
-
-const ambience = document.getElementById("ambience")!;
-ambience.addEventListener("click", () => {
-  const off = document.body.classList.toggle("ambience-off");
-  ambience.setAttribute("aria-pressed", String(!off));
-  ambience.querySelector("span")!.textContent = off ? "off" : "on";
-});
-const theatre = document.getElementById("theatre")!;
-theatre.addEventListener("click", () => {
-  const enabled = document.body.classList.toggle("theatre-mode");
-  theatre.setAttribute("aria-pressed", String(enabled));
-  if (enabled)
-    document.getElementById("screening")!.scrollIntoView({
-      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "instant"
-        : "smooth",
-      block: "start",
-    });
-});
-
-// A small amount of spatial response, disabled for reduced motion and touch.
-const hero = document.querySelector<HTMLElement>(".hero")!;
-hero.addEventListener("pointermove", (event) => {
-  if (
-    !matchMedia("(hover: hover) and (prefers-reduced-motion: no-preference)")
-      .matches
-  )
-    return;
-  const box = hero.getBoundingClientRect();
-  hero.style.setProperty(
-    "--orbit-x",
-    `${((event.clientX - box.left) / box.width - 0.5) * 8}px`,
-  );
-  hero.style.setProperty(
-    "--orbit-y",
-    `${((event.clientY - box.top) / box.height - 0.5) * 8}px`,
-  );
-});
-hero.addEventListener("pointerleave", () => {
-  hero.style.removeProperty("--orbit-x");
-  hero.style.removeProperty("--orbit-y");
-});

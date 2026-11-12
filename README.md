@@ -1,16 +1,21 @@
-# Elsewhere
+# Floating Glass Dock — Video.js v10 Skin
 
-An immersive, original Video.js v10 skin and showcase. Midnight violet, lilac, expressive serif typography and rounded glass controls create a space for uninterrupted viewing.
+An immersive, responsive 3D violet glass dock skin and showcase for Video.js v10. Featuring translucent violet/magenta glass spheres, neon progress scrubber, glowing thumbs, and a floating glass control dock.
 
-The player markup, theme, CSS, rounded icon family and showcase are designed as one coherent experience. Video.js components and the workbench supply the playback and accessibility foundation.
+The player markup, styles, icons, and showcase are designed as a clean-slate overhaul matching the responsive reference designs:
+- **Tablet & Mobile (Reference Image 1):** Center floating 3D glass orb transport (`-10s`, `Play/Pause`, `+10s`) above the video canvas, paired with a bottom floating glass pill dock holding time, straight neon progress scrubber, volume, captions, settings, and fullscreen.
+- **Desktop (Reference Image 2):** Inline 3D glass transport orbs inside the bottom floating glass dock arranged in 4 distinct zones separated by vertical glass dividers.
 
-## The interface
+## Features
 
-Large glossy back/play/pause/forward spheres sit in the center of the picture. A separate floating violet glass dock holds time, a smooth luminous seek bar, mute/volume, captions, settings and fullscreen. Its white playhead and gradient fill reflect the actual playback position, with frame previews on hover. The bottom capsule has a visible gap below it. The dock uses one row on desktop and two compact rows on phones.
+- **Responsive Breakpoint Logic:** Container query (`container-type: inline-size; container-name: player;`) ensures responsive switching between mobile/tablet and desktop modes both in real viewports and inside framed testing environments like `/workbench.html`.
+- **Center 3D Glass Orbs (Mobile/Tablet):** Translucent violet and magenta 3D spheres with neon rim glow and smooth backdrops.
+- **Straight Neon Progress Scrubber:** Vivid magenta/purple gradient played fill (`#9333ea` to `#ec4899` to `#f472b6`) with glowing white playhead thumb and buffered indicator.
+- **Volume & Utility Cluster:** Dedicated speaker mute toggle with smooth horizontal volume slider, `CC` captions badge button, Settings gear button, and Fullscreen toggle.
+- **Settings Speech-Bubble Popover:** Glass popover with caret pointer anchored directly over the settings gear icon, featuring cards for playback speed, quality selector, and a synced purple pill toggle switch for captions.
+- **Typography & Styling:** Clean typography powered by `DM Sans`, completely free of legacy Elsewhere acid-lime accents or undulating SVG timeline artifacts.
 
-Settings expose actual available quality, speed, audio and caption options. Video.js supplies keyboard navigation, translated control labels, a status announcer, gestures, buffering and error handling. Controls have 44px targets, a consistent visible focus ring and contrast-preserving glass surfaces with opaque preference fallbacks. Reduced motion disables decorative and control motion. Phone showcase layouts reserve separate space for the image and dock.
-
-## Run
+## Quick Start
 
 ```sh
 npm install
@@ -19,20 +24,13 @@ npm run typecheck
 npm run build
 ```
 
-`/` shows the experience. `/workbench.html` tests widths, aspect ratios, languages, RTL and preferences. Skin source is entirely in `src/`; it has no dependency on the showcase.
+- `/` serves the dark cinema showcase stage.
+- `/workbench.html` provides the Video.js workbench for testing viewports, aspect ratios, RTL, and accessibility.
 
-## Your Mux video
+## Mux Video Integration
 
-Set `MUX_PLAYBACK_ID` in `apps/preview/src/showcase/media.ts` to your public playback ID, or use `?playbackId=YOUR_ID`. The bundled demo assets belong to their respective providers; use your own asset for the challenge's Mux bonus.
+Set `MUX_PLAYBACK_ID` in `apps/preview/src/showcase/media.ts` to your public Mux playback ID, or test via the `?playbackId=YOUR_ID` query parameter.
 
-## Deployment
+## License
 
-```sh
-npm run deploy vercel
-```
-
-Vercel-connected GitHub branches may create previews automatically. A challenge submission must use a publicly accessible URL without sign-in.
-
-## Credits and licensing
-
-Video.js v10 / Mux. NASA Cosmic Dawn trailer and Big Buck Bunny, © Blender Foundation, CC BY 3.0. Fonts: DM Sans and Instrument Serif, SIL Open Font License. Original rounded SVG icons. Skin source: Apache License 2.0; see LICENSE. Third-party footage is not relicensed by this project.
+Apache-2.0

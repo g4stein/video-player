@@ -35,5 +35,8 @@
     "vite": "^8.3.4"
   },
   "license": "Apache-2.0",
-  "description": "Elsewhere — an immersive Video.js v10 skin"
+  "description": "Elsewhere — an immersive Video.js v10 skin",
+  "optionalDependencies": {
+    "@rolldown/binding-win32-x64-msvc": "^1.2.18"
+  }
 }
