@@ -2,7 +2,7 @@
 
 A Video.js v10 skin with floating 3D violet glass controls, DM Sans typography, and a straight neon magenta/purple timeline. All controls sit over the video inside its 16:9 frame.
 
-Desktop players wider than 900px, in viewports wider than 1024px, place 52px rewind/forward orbs and a 70px play/pause orb inside the 90px floating dock. Tablet and mobile layouts place the transport orbs over the picture above a pill dock. Compact phone controls scale to fit the video canvas.
+Desktop players wider than 900px, in viewports wider than 1024px, place 44px rewind/forward orbs and a 56px play/pause orb inside the 72px floating dock. Tablet and mobile layouts place the transport orbs over the picture above a pill dock. Compact phone controls scale to fit the video canvas.
 
 Settings provide real speed and quality options and a captions toggle synchronized with the dock CC button. Video.js supplies playback, keyboard navigation, translated labels, status announcements, gestures, buffering and error handling. Focus remains visible; reduced motion, contrast and transparency preferences are respected.
 
