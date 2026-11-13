@@ -1,15 +1,11 @@
-# ELSEWHERE
+# Violet Glass design specification
 
-An original player and showcase built from a blank visual brief, with creative direction delegated by the user.
+The two supplied reference images define the skin. DM Sans, white icons, translucent violet glass and magenta rim lighting apply throughout. The showcase is a minimal #070416 cinema stage.
 
-Concept: an invitation to escape into a film. Midnight-violet spatial canvas; pale lilac and warm-white typography; acid-lime interactions; expressive Instrument Serif headlines paired with DM Sans. Rounded, fluid geometry replaces hard archival edges.
+Desktop requires a player wider than 900px and a viewport wider than 1024px. A floating 72px dock contains time/seek, 44/56/44px transport orbs, volume and utilities, in source order. Tablet/mobile uses centered 48/68/48px orbs above a 56px pill dock. Compact phones scale the orbs and dock to fit inside the 16:9 canvas.
 
-Showcase: a quiet wordmark and navigation; oversized asymmetric serif headline and small introductory copy; large immersive nebula screening stage; live film metadata; selectable destinations; an illustrated interaction story; keyboard reference. Theatre mode and ambience are independent, usable controls. Viewport toggles exercise the actual skin.
+The timeline is a straight 5px track, buffered fill, neon gradient played fill and 14px white glowing thumb. Settings has speed and quality submenus, a synchronized captions toggle, close action and downward caret. Options reflect actual media availability.
 
-Player: floating opaque violet dock with round keys; lime primary play; cream orbital initial play control. Source order: top title/PiP, initial play, play/back/forward/mute/volume/time/captions/settings/fullscreen, timeline. Rounded original 24px icons. Full settings submenus for actual available quality, speed, audio and captions. A decorative undulating progress trail reflects actual playback; it is not represented as audio data. Preview thumbnails follow the Video.js timeline.
+Controls retain keyboard operation, visible focus, announcements and gestures. Motion respects reduced motion; glass has contrast and transparency preference fallbacks.
 
-Motion: feedback grows from the pressed control; the entry orb has a static orbital halo; ambient glow strengthens during playback; controls appear promptly on activity/focus and hide subtly when idle. All motion settles under reduced motion. No autoplay.
-
-Responsive: the dock compacts by player container width. The showcase gives the picture and controls separate space on phones. Targets are at least 44px. Time and essential controls remain visible; optional captions and seek keys collapse only at narrow widths. Error dialog, translated accessible labels, status announcer, gestures and shortcuts remain supplied by Video.js.
-
-Derived details: #141321 ink, #c3b6ff lilac, #dcf98a lime, #f4f2f8 paper. Opaque control surfaces ensure footage-independent contrast. One consistent lime focus ring. Keyboard menus close with Escape and return focus. Fonts are SIL OFL licensed; skin source is Apache 2.0.
+Phone docks are 48px tall with inline time and seeking. Seek interaction height stays 44px. At widths up to 340px, captions remain available in Settings and the duration label collapses. Settings scrolls within the player above the dock; central transport hides while it is open. Pointer-focused playback buttons do not prevent idle hiding.

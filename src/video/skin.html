@@ -1,6 +1,6 @@
 <media-container
   class="media-skin ew-player"
-  data-theme="elsewhere"
+  data-theme="violet"
   data-preset="video"
 >
   <!-- Add a compatible media component here. -->
@@ -19,113 +19,143 @@
     <media-controls-group class="ew-buffer-group"
       ><media-buffering-indicator class="ew-buffer"
         ><media-icon
-          family="elsewhere"
+          family="violet"
           name="spinner"
           class="ew-icon"
         ></media-icon></media-buffering-indicator
     ></media-controls-group>
     <media-controls-content class="ew-content"
       ><media-tooltip-group>
-        <media-controls-group class="ew-top"
-          ><media-title class="ew-title"></media-title
-          ><media-pip-button id="ew-pip" class="ew-button ew-pip"
+<media-controls-group class="ew-center"
+          ><media-seek-button
+            seconds="-10"
+            id="ew-seek--10"
+            class="ew-button ew-skip"
             ><media-icon
-              family="elsewhere"
-              name="pip-enter"
-              class="ew-icon is-enter"
+              family="violet"
+              name="seek"
+              class="ew-icon backward"
             ></media-icon
-            ><media-icon
-              family="elsewhere"
-              name="pip-exit"
-              class="ew-icon is-exit"
-            ></media-icon></media-pip-button
-          ><media-tooltip trigger="ew-pip" side="top" class="ew-tooltip"
+            ><span aria-hidden="true">10</span></media-seek-button
+          ><media-tooltip trigger="ew-seek--10" side="top" class="ew-tooltip"
             ><media-tooltip-label></media-tooltip-label
             ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
-        ></media-controls-group>
-        <media-controls-group class="ew-center"
-          ><media-play-button
-            id="ew-center-play"
-            class="ew-button ew-play ew-orb"
+          ><media-play-button id="ew-play" class="ew-button ew-play"
             ><media-icon
-              family="elsewhere"
+              family="violet"
               name="play"
               class="ew-icon is-play"
             ></media-icon
             ><media-icon
-              family="elsewhere"
+              family="violet"
               name="pause"
               class="ew-icon is-pause"
             ></media-icon
             ><media-icon
-              family="elsewhere"
+              family="violet"
               name="restart"
               class="ew-icon is-restart"
             ></media-icon></media-play-button
-          ><span class="ew-orbit" aria-hidden="true"></span
-        ></media-controls-group>
-        <media-controls-group class="ew-dock">
-          <media-controls-group class="ew-transport"
-            ><media-play-button id="ew-play" class="ew-button ew-play"
-              ><media-icon
-                family="elsewhere"
-                name="play"
-                class="ew-icon is-play"
-              ></media-icon
-              ><media-icon
-                family="elsewhere"
-                name="pause"
-                class="ew-icon is-pause"
-              ></media-icon
-              ><media-icon
-                family="elsewhere"
-                name="restart"
-                class="ew-icon is-restart"
-              ></media-icon></media-play-button
-            ><media-tooltip trigger="ew-play" side="top" class="ew-tooltip"
-              ><media-tooltip-label></media-tooltip-label
-              ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
-            ><media-seek-button
-              seconds="-10"
-              id="ew-seek--10"
-              class="ew-button ew-skip"
-              ><media-icon
-                family="elsewhere"
-                name="seek"
-                class="ew-icon backward"
-              ></media-icon
-              ><span aria-hidden="true">10</span></media-seek-button
-            ><media-tooltip trigger="ew-seek--10" side="top" class="ew-tooltip"
-              ><media-tooltip-label></media-tooltip-label
-              ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
-            ><media-seek-button
-              seconds="10"
-              id="ew-seek-10"
-              class="ew-button ew-skip"
-              ><media-icon
-                family="elsewhere"
-                name="seek"
-                class="ew-icon"
-              ></media-icon
-              ><span aria-hidden="true">10</span></media-seek-button
-            ><media-tooltip trigger="ew-seek-10" side="top" class="ew-tooltip"
-              ><media-tooltip-label></media-tooltip-label
-              ><media-tooltip-shortcut></media-tooltip-shortcut
-            ></media-tooltip>
-            <div class="ew-volume">
+          ><media-tooltip trigger="ew-play" side="top" class="ew-tooltip"
+            ><media-tooltip-label></media-tooltip-label
+            ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
+          ><media-seek-button
+            seconds="10"
+            id="ew-seek-10"
+            class="ew-button ew-skip"
+            ><media-icon
+              family="violet"
+              name="seek"
+              class="ew-icon"
+            ></media-icon
+            ><span aria-hidden="true">10</span></media-seek-button
+          ><media-tooltip trigger="ew-seek-10" side="top" class="ew-tooltip"
+            ><media-tooltip-label></media-tooltip-label
+            ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip></media-controls-group>
+<media-controls-group class="ew-dock">
+          <media-controls-group class="ew-transport">
+            <media-time-group class="ew-time"
+              ><media-time type="current" class="ew-time-current"></media-time
+              ><media-time-separator></media-time-separator
+              ><media-time type="duration" class="ew-time-duration"></media-time
+            ></media-time-group>
+            <div class="ew-seek-row">
+              <media-time-slider thumb-alignment="edge" class="ew-timeline"
+                ><media-slider-track class="ew-trail"
+                  ><media-slider-buffer></media-slider-buffer
+                  ><media-slider-fill></media-slider-fill></media-slider-track
+                ><media-slider-thumb class="ew-playhead"></media-slider-thumb
+                ><media-slider-preview class="ew-preview"
+                  ><div class="ew-preview-card">
+                    <media-slider-thumbnail
+                      ><img class="ew-thumbnail-image" alt=""
+                    /></media-slider-thumbnail>
+                    <div>
+                      <media-slider-value type="pointer"></media-slider-value
+                      ><media-time-slider-chapter-title></media-time-slider-chapter-title>
+                    </div></div></media-slider-preview
+              ></media-time-slider>
+            </div>
+</media-controls-group><media-controls-group class="ew-inline"
+          ><media-seek-button
+            seconds="-10"
+            id="desktop-ew-seek--10"
+            class="ew-button ew-skip"
+            ><media-icon
+              family="violet"
+              name="seek"
+              class="ew-icon backward"
+            ></media-icon
+            ><span aria-hidden="true">10</span></media-seek-button
+          ><media-tooltip trigger="desktop-ew-seek--10" side="top" class="ew-tooltip"
+            ><media-tooltip-label></media-tooltip-label
+            ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
+          ><media-play-button id="desktop-ew-play" class="ew-button ew-play"
+            ><media-icon
+              family="violet"
+              name="play"
+              class="ew-icon is-play"
+            ></media-icon
+            ><media-icon
+              family="violet"
+              name="pause"
+              class="ew-icon is-pause"
+            ></media-icon
+            ><media-icon
+              family="violet"
+              name="restart"
+              class="ew-icon is-restart"
+            ></media-icon></media-play-button
+          ><media-tooltip trigger="desktop-ew-play" side="top" class="ew-tooltip"
+            ><media-tooltip-label></media-tooltip-label
+            ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip
+          ><media-seek-button
+            seconds="10"
+            id="desktop-ew-seek-10"
+            class="ew-button ew-skip"
+            ><media-icon
+              family="violet"
+              name="seek"
+              class="ew-icon"
+            ></media-icon
+            ><span aria-hidden="true">10</span></media-seek-button
+          ><media-tooltip trigger="desktop-ew-seek-10" side="top" class="ew-tooltip"
+            ><media-tooltip-label></media-tooltip-label
+            ><media-tooltip-shortcut></media-tooltip-shortcut></media-tooltip></media-controls-group>
+<media-controls-group class="ew-utilities">            <div class="ew-volume">
               <media-mute-button id="ew-mute" class="ew-button ew-mute"
                 ><media-icon
-                  family="elsewhere"
+                  family="violet"
                   name="volume-off"
                   class="ew-icon is-off"
                 ></media-icon
                 ><media-icon
-                  family="elsewhere"
+                  family="violet"
                   name="volume-low"
                   class="ew-icon is-low"
                 ></media-icon
                 ><media-icon
-                  family="elsewhere"
+                  family="violet"
                   name="volume-high"
                   class="ew-icon is-high"
                 ></media-icon></media-mute-button
@@ -140,22 +170,17 @@
                 ><media-slider-thumb></media-slider-thumb
               ></media-volume-slider>
             </div>
-            <media-time-group class="ew-time"
-              ><media-time type="current" class="ew-time-current"></media-time
-              ><media-time-separator></media-time-separator
-              ><media-time type="duration" class="ew-time-duration"></media-time
-            ></media-time-group>
-            <div class="ew-transport-spacer"></div>
+
             <media-captions-button
               id="ew-captions"
               class="ew-button ew-captions"
               ><media-icon
-                family="elsewhere"
+                family="violet"
                 name="captions-off"
                 class="ew-icon is-off"
               ></media-icon
               ><media-icon
-                family="elsewhere"
+                family="violet"
                 name="captions-on"
                 class="ew-icon is-on"
               ></media-icon></media-captions-button
@@ -170,7 +195,7 @@
               class="ew-button"
             >
               <media-icon
-                family="elsewhere"
+                family="violet"
                 name="gear"
                 class="ew-icon"
               ></media-icon
@@ -185,76 +210,18 @@
             <media-menu
               id="ew-settings-menu"
               class="ew-menu"
+              boundary="container"
               side="top"
               align="end"
               ><media-menu-content class="ew-menu-content"
-                ><div class="ew-menu-heading" aria-hidden="true">
-                  <media-text token="menu.settings">Settings</media-text>
-                </div>
-                <media-menu-item
-                  commandfor="ew-quality-panel"
-                  class="ew-menu-item"
-                  ><media-icon
-                    family="elsewhere"
-                    name="switches"
-                    class="ew-icon"
-                  ></media-icon
-                  ><media-text token="menu.quality">Quality</media-text
-                  ><span data-part="hint" class="ew-menu-hint"></span
-                  ><media-icon
-                    family="elsewhere"
-                    name="chevron"
-                    class="ew-icon"
-                  ></media-icon></media-menu-item
-                ><media-menu-item
-                  commandfor="ew-speed-panel"
-                  class="ew-menu-item"
-                  ><media-icon
-                    family="elsewhere"
-                    name="speed"
-                    class="ew-icon"
-                  ></media-icon
-                  ><media-text token="menu.speed">Speed</media-text
-                  ><span data-part="hint" class="ew-menu-hint"></span
-                  ><media-icon
-                    family="elsewhere"
-                    name="chevron"
-                    class="ew-icon"
-                  ></media-icon></media-menu-item
-                ><media-menu-item
-                  commandfor="ew-audio-panel"
-                  class="ew-menu-item"
-                  ><media-icon
-                    family="elsewhere"
-                    name="speech"
-                    class="ew-icon"
-                  ></media-icon
-                  ><media-text token="menu.audio">Audio</media-text
-                  ><span data-part="hint" class="ew-menu-hint"></span
-                  ><media-icon
-                    family="elsewhere"
-                    name="chevron"
-                    class="ew-icon"
-                  ></media-icon></media-menu-item
-                ><media-menu-item
-                  commandfor="ew-captions-panel"
-                  class="ew-menu-item"
-                  ><media-icon
-                    family="elsewhere"
-                    name="captions-off"
-                    class="ew-icon"
-                  ></media-icon
-                  ><media-text token="menu.captions">Captions</media-text
-                  ><span data-part="hint" class="ew-menu-hint"></span
-                  ><media-icon
-                    family="elsewhere"
-                    name="chevron"
-                    class="ew-icon"
-                  ></media-icon></media-menu-item></media-menu-content
+                ><div class="ew-menu-heading"><media-text token="menu.settings">Settings</media-text><media-menu-item class="ew-close" aria-label="Close settings">✕</media-menu-item></div>
+<media-menu-item commandfor="ew-speed-panel" class="ew-menu-item"><media-icon family="violet" name="speed" class="ew-icon"></media-icon><media-text token="menu.speed">Speed</media-text><span data-part="hint" class="ew-menu-hint"></span><span aria-hidden="true">›</span></media-menu-item>
+<media-menu-item commandfor="ew-quality-panel" class="ew-menu-item"><media-icon family="violet" name="switches" class="ew-icon"></media-icon><media-text token="menu.quality">Quality</media-text><span data-part="hint" class="ew-menu-hint"></span><span aria-hidden="true">›</span></media-menu-item>
+<media-menu-item class="ew-menu-item ew-caption-toggle"><media-icon family="violet" name="captions-off" class="ew-icon"></media-icon><media-text token="menu.captions">Captions</media-text><span class="ew-switch" aria-hidden="true"></span></media-menu-item></media-menu-content
               ><media-menu-content id="ew-quality-panel" class="ew-menu-content"
                 ><media-menu-item class="ew-menu-back"
                   ><media-icon
-                    family="elsewhere"
+                    family="violet"
                     name="chevron"
                     class="ew-icon"
                   ></media-icon
@@ -268,14 +235,14 @@
                       ><span data-part="label"></span
                       ><media-menu-item-indicator
                         ><media-icon
-                          family="elsewhere"
+                          family="violet"
                           name="check"
                           class="ew-icon"
                         ></media-icon></media-menu-item-indicator></media-menu-radio-item></template></media-quality-radio-group></media-menu-content
               ><media-menu-content id="ew-speed-panel" class="ew-menu-content"
                 ><media-menu-item class="ew-menu-back"
                   ><media-icon
-                    family="elsewhere"
+                    family="violet"
                     name="chevron"
                     class="ew-icon"
                   ></media-icon
@@ -289,65 +256,21 @@
                       ><span data-part="label"></span
                       ><media-menu-item-indicator
                         ><media-icon
-                          family="elsewhere"
+                          family="violet"
                           name="check"
                           class="ew-icon"
                         ></media-icon></media-menu-item-indicator></media-menu-radio-item></template></media-playback-rate-radio-group></media-menu-content
-              ><media-menu-content id="ew-audio-panel" class="ew-menu-content"
-                ><media-menu-item class="ew-menu-back"
-                  ><media-icon
-                    family="elsewhere"
-                    name="chevron"
-                    class="ew-icon"
-                  ></media-icon
-                  ><media-text token="menu.audio"
-                    >Audio</media-text
-                  ></media-menu-item
-                ><media-menu-separator></media-menu-separator
-                ><media-audio-track-radio-group
-                  ><template
-                    ><media-menu-radio-item class="ew-menu-item"
-                      ><span data-part="label"></span
-                      ><media-menu-item-indicator
-                        ><media-icon
-                          family="elsewhere"
-                          name="check"
-                          class="ew-icon"
-                        ></media-icon></media-menu-item-indicator></media-menu-radio-item></template></media-audio-track-radio-group></media-menu-content
-              ><media-menu-content
-                id="ew-captions-panel"
-                class="ew-menu-content"
-                ><media-menu-item class="ew-menu-back"
-                  ><media-icon
-                    family="elsewhere"
-                    name="chevron"
-                    class="ew-icon"
-                  ></media-icon
-                  ><media-text token="menu.captions"
-                    >Captions</media-text
-                  ></media-menu-item
-                ><media-menu-separator></media-menu-separator
-                ><media-captions-radio-group
-                  ><template
-                    ><media-menu-radio-item class="ew-menu-item"
-                      ><span data-part="label"></span
-                      ><media-menu-item-indicator
-                        ><media-icon
-                          family="elsewhere"
-                          name="check"
-                          class="ew-icon"
-                        ></media-icon></media-menu-item-indicator></media-menu-radio-item></template></media-captions-radio-group></media-menu-content
-            ></media-menu>
+              ></media-menu>
             <media-fullscreen-button
               id="ew-fullscreen"
               class="ew-button ew-fullscreen"
               ><media-icon
-                family="elsewhere"
+                family="violet"
                 name="fullscreen-enter"
                 class="ew-icon is-enter"
               ></media-icon
               ><media-icon
-                family="elsewhere"
+                family="violet"
                 name="fullscreen-exit"
                 class="ew-icon is-exit"
               ></media-icon></media-fullscreen-button
@@ -359,23 +282,6 @@
               ><media-tooltip-shortcut></media-tooltip-shortcut
             ></media-tooltip>
           </media-controls-group>
-          <div class="ew-seek-row">
-            <media-time-slider class="ew-timeline"
-              ><media-slider-track class="ew-trail"
-                ><media-slider-buffer></media-slider-buffer
-                ><media-slider-fill></media-slider-fill></media-slider-track
-              ><media-slider-thumb class="ew-playhead"></media-slider-thumb
-              ><media-slider-preview class="ew-preview"
-                ><div class="ew-preview-card">
-                  <media-slider-thumbnail
-                    ><img class="ew-thumbnail-image" alt=""
-                  /></media-slider-thumbnail>
-                  <div>
-                    <media-slider-value type="pointer"></media-slider-value
-                    ><media-time-slider-chapter-title></media-time-slider-chapter-title>
-                  </div></div></media-slider-preview
-            ></media-time-slider>
-          </div>
         </media-controls-group> </media-tooltip-group
     ></media-controls-content>
   </media-controls>
@@ -426,45 +332,45 @@
   <div class="ew-indicators" aria-hidden="true">
     <media-volume-indicator class="ew-status"
       ><media-icon
-        family="elsewhere"
+        family="violet"
         name="volume-high"
         class="ew-icon"
       ></media-icon
       ><media-volume-indicator-fill
         ><media-volume-indicator-value></media-volume-indicator-value></media-volume-indicator-fill></media-volume-indicator
     ><media-seek-indicator class="ew-status"
-      ><media-icon family="elsewhere" name="seek" class="ew-icon"></media-icon
+      ><media-icon family="violet" name="seek" class="ew-icon"></media-icon
       ><media-seek-indicator-value></media-seek-indicator-value></media-seek-indicator
     ><media-status-indicator
       class="ew-status ew-feedback"
       actions="toggleFullscreen,toggleSubtitles,togglePictureInPicture"
       ><media-icon
-        family="elsewhere"
+        family="violet"
         name="fullscreen-enter"
         class="ew-icon ew-feedback-fullscreen"
       ></media-icon
       ><media-icon
-        family="elsewhere"
+        family="violet"
         name="fullscreen-exit"
         class="ew-icon ew-feedback-exit-fullscreen"
       ></media-icon
       ><media-icon
-        family="elsewhere"
+        family="violet"
         name="captions-on"
         class="ew-icon ew-feedback-captions-on"
       ></media-icon
       ><media-icon
-        family="elsewhere"
+        family="violet"
         name="captions-off"
         class="ew-icon ew-feedback-captions-off"
       ></media-icon
       ><media-icon
-        family="elsewhere"
+        family="violet"
         name="pip-enter"
         class="ew-icon ew-feedback-pip"
       ></media-icon
       ><media-icon
-        family="elsewhere"
+        family="violet"
         name="pip-exit"
         class="ew-icon ew-feedback-exit-pip"
       ></media-icon

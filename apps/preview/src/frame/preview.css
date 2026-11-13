@@ -5,7 +5,7 @@
 
 body {
   margin: 0;
-  background: light-dark(#ffffff, #0a0a0a);
+  background: #070416; font-family: "DM Sans", sans-serif;
 }
 
 .preview-page {
@@ -18,7 +18,7 @@ body {
 
 .preview-player {
   width: 100%;
-  max-width: var(--preview-player-width, 56rem);
+  max-width: var(--preview-player-width, 1160px);
 }
 
 /* The aspect ratio option overrides the skin's own; `auto` lets the media's intrinsic size decide. */

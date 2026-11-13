@@ -1,16 +1,12 @@
-# Elsewhere
+# Violet Glass
 
-An immersive, original Video.js v10 skin and showcase. Midnight violet, lilac, acid lime, expressive serif typography and rounded controls create a space for uninterrupted viewing.
+A Video.js v10 skin with floating 3D violet glass controls, DM Sans typography, and a straight neon magenta/purple timeline. All controls sit over the video inside its 16:9 frame.
 
-The player markup, theme, CSS, rounded icon family and showcase are designed as one coherent experience. Video.js components and the workbench supply the playback and accessibility foundation.
+Desktop players wider than 900px, in viewports wider than 1024px, place 44px rewind/forward orbs and a 56px play/pause orb inside the 72px floating dock. Tablet and mobile layouts place the transport orbs over the picture above a pill dock. Tablet docks are 56px tall; phone docks are 48px with one row of controls and a 44px seek target. On very narrow players, captions remain available in Settings.
 
-## The interface
+Settings stay inside the video canvas and scroll when space is limited. Center transport hides while settings is open. Settings provide real speed and quality options and a captions toggle synchronized with the dock CC button. Video.js supplies playback, keyboard navigation, translated labels, status announcements, gestures, buffering and error handling. Focus remains visible; reduced motion, contrast and transparency preferences are respected.
 
-A floating violet control dock holds round transport keys, time, mute/volume, captions, settings and fullscreen. An undulating progress trail reflects the actual playback position, with a floating playhead and frame preview. It is decorative timeline geometry, not audio analysis. An orbital initial play key invites the first interaction.
-
-Settings expose actual available quality, speed, audio and caption options. Video.js supplies keyboard navigation, translated control labels, a status announcer, gestures, buffering and error handling. Controls have 44px targets, a consistent visible focus ring and opaque backgrounds. Reduced motion disables decorative and control motion. Phone showcase layouts reserve separate space for the image and dock.
-
-## Run
+## Development
 
 ```sh
 npm install
@@ -19,11 +15,11 @@ npm run typecheck
 npm run build
 ```
 
-`/` shows the experience. `/workbench.html` tests widths, aspect ratios, languages, RTL and preferences. Skin source is entirely in `src/`; it has no dependency on the showcase.
+`/` opens the minimal dark cinema showcase with film and device size selectors. `/workbench.html` tests widths, ratios, languages, RTL and playback settings. `/preview.html` opens the isolated skin. Source lives in `src/` and does not depend on the showcase.
 
-## Your Mux video
+## Mux
 
-Set `MUX_PLAYBACK_ID` in `apps/preview/src/showcase/media.ts` to your public playback ID, or use `?playbackId=YOUR_ID`. The bundled demo assets belong to their respective providers; use your own asset for the challenge's Mux bonus.
+Set `MUX_PLAYBACK_ID` in `apps/preview/src/showcase/media.ts` or supply `?playbackId=YOUR_ID` on the showcase or standalone preview. Use your own live Mux asset for the challenge bonus. Demo footage belongs to its respective providers.
 
 ## Deployment
 
@@ -31,8 +27,10 @@ Set `MUX_PLAYBACK_ID` in `apps/preview/src/showcase/media.ts` to your public pla
 npm run deploy vercel
 ```
 
-Vercel-connected GitHub branches may create previews automatically. A challenge submission must use a publicly accessible URL without sign-in.
+The build outputs `dist/`. Connected Vercel branches may deploy automatically.
 
-## Credits and licensing
+## Credits
 
-Video.js v10 / Mux. NASA Cosmic Dawn trailer and Big Buck Bunny, © Blender Foundation, CC BY 3.0. Fonts: DM Sans and Instrument Serif, SIL Open Font License. Original rounded SVG icons. Skin source: Apache License 2.0; see LICENSE. Third-party footage is not relicensed by this project.
+Video.js v10 / Mux; NASA Cosmic Dawn trailer; Big Buck Bunny, © Blender Foundation, CC BY 3.0. DM Sans: SIL Open Font License. Original SVG controls. Skin source: Apache 2.0, see LICENSE. Third-party footage is not relicensed.
+
+The existing Cloudflare deployment project name is retained to preserve the hosting configuration.

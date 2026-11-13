@@ -28,7 +28,7 @@
     }
 
     /* Matches the `--container-media-2xl` control layout breakpoint. */
-    @container media-root (width < 42rem) {
+    @container player (width < 42rem) {
       :scope[data-theme="default"][data-controls-visible] video {
         --media-caption-track-y: calc(var(--media-spacing) * -14);
       }

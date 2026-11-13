@@ -1,10 +1,10 @@
-/** Elsewhere: an original 24px icon family with rounded 1.8px strokes. */
+/** Violet Glass: an original 24px icon family with rounded 1.8px strokes. */
 const icon = (body: string) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;
 const solid = (d: string) =>
   `<path d="${d}" fill="currentColor" stroke="none"/>`;
 const speaker = '<path d="M4 9H7L12 5V19L7 15H4Z"/>';
-export const elsewhereIcons = {
+export const violetIcons = {
   play: icon(
     solid("M9 5.8Q8 5.2 8 6.5V17.5Q8 18.8 9 18.2L19 12.8Q20.5 12 19 11.2Z"),
   ),
@@ -35,14 +35,14 @@ export const elsewhereIcons = {
     '<rect x="2" y="4" width="20" height="16" rx="4"/><rect x="12" y="11" width="7" height="6" rx="1" fill="currentColor"/>',
   ),
   gear: icon(
-    '<path d="M5 7H19M5 17H19"/><circle cx="9" cy="7" r="3" fill="var(--ew-surface,#252332)"/><circle cx="15" cy="17" r="3" fill="var(--ew-surface,#252332)"/>',
+    '<path d="M10 3h4l.7 2.3 2 .9 2.2-.6 2 3.4-1.6 1.7v2.6L21 15l-2 3.4-2.2-.6-2 .9L14 21h-4l-.7-2.3-2-.9-2.2.6L3 15l1.6-1.7v-2.6L3 9l2-3.4 2.2.6 2-.9Z"/><circle cx="12" cy="12" r="3.1"/>',
   ),
   chevron: icon('<path d="M9 6L15 12L9 18"/>'),
   check: icon('<path d="M5 12L10 17L20 7"/>'),
   speed: icon(
-    '<path d="M4 17A9 9 0 1 1 20 17M12 13L17 8"/><circle cx="12" cy="13" r="1"/>',
+    '<path d="M7 4L20 12L7 20Z"/>',
   ),
-  switches: icon('<path d="M5 5H19V19H5Z"/><path d="M9 9H15V15H9Z"/>'),
+  switches: icon('<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17V21M8 21H16"/>'),
   speech: icon('<path d="M4 10V14M8 6V18M12 3V21M16 7V17M20 10V14"/>'),
   spinner: icon('<path d="M12 3A9 9 0 1 1 3 12"/>'),
 } as const;

@@ -1,5 +1,5 @@
 import "../styles/video/base.css";
-import "../styles/themes/elsewhere.css";
+import "../styles/themes/violet.css";
 import "./skin.css";
 import "@videojs/html/i18n";
 import "@videojs/html/ui/container";
@@ -59,5 +59,66 @@ import "@videojs/html/ui/status-indicator";
 import "@videojs/html/ui/seek-indicator";
 import "@videojs/html/ui/seek-indicator-value";
 import { registerIcons } from "@videojs/html/icons";
-import { elsewhereIcons } from "./icons";
-registerIcons("elsewhere", elsewhereIcons);
+import { violetIcons } from "./icons";
+registerIcons("violet", violetIcons);
+
+// Route the menu action through the native captions control so both views stay synchronized.
+document.addEventListener("select", (event) => {
+  const item = event.target;
+  if (!(item instanceof Element) || !item.matches(".ew-caption-toggle")) return;
+  event.preventDefault();
+  const skin = item.closest(".media-skin");
+  (skin?.querySelector("media-captions-button") as HTMLElement | null)?.click();
+}, true);
+
+const syncCaptions = () => {
+  document.querySelectorAll(".media-skin").forEach((skin) => {
+    const control = skin.querySelector("media-captions-button");
+    const toggle = skin.querySelector(".ew-caption-toggle");
+    if (!control || !toggle) return;
+    toggle.setAttribute("role", "menuitemcheckbox");
+    toggle.setAttribute("aria-checked", String(control.hasAttribute("data-active")));
+    toggle.setAttribute("aria-disabled", String(control.getAttribute("data-availability") === "unavailable"));
+  });
+};
+new MutationObserver(syncCaptions).observe(document.documentElement, {
+  subtree: true, childList: true, attributes: true,
+  attributeFilter: ["data-active", "data-availability"],
+});
+
+// Fit the menu to the video canvas, including short phone and workbench frames.
+const observedSkins = new WeakSet<Element>();
+const menuLayout = (skin: Element) => {
+  const root = skin as HTMLElement;
+  const dock = root.querySelector<HTMLElement>(".ew-dock");
+  const menu = root.querySelector<HTMLElement>(".ew-menu");
+  const gear = root.querySelector<HTMLElement>("#ew-settings");
+  if (!dock || !menu || !gear) return;
+  const frame = root.getBoundingClientRect();
+  const button = gear.getBoundingClientRect();
+  root.style.setProperty("--ew-menu-max-height", `${Math.max(44, button.top - frame.top - 24)}px`);
+  root.style.setProperty("--ew-menu-max-width", `${Math.max(0, frame.width - 24)}px`);
+  requestAnimationFrame(() => {
+    if (!menu.hasAttribute("data-open")) return;
+    const popup = menu.getBoundingClientRect();
+    menu.style.setProperty("--ew-caret-right", `${Math.max(12, Math.min(popup.width - 36, popup.right - button.left - button.width / 2 - 12))}px`);
+  });
+};
+const observeSkins = () => document.querySelectorAll(".media-skin").forEach((skin) => {
+  if (observedSkins.has(skin)) return;
+  observedSkins.add(skin);
+  const observer = new ResizeObserver(() => menuLayout(skin));
+  observer.observe(skin);
+  const menu = skin.querySelector(".ew-menu");
+  if (menu) observer.observe(menu);
+  menuLayout(skin);
+});
+new MutationObserver((records) => {
+  observeSkins();
+  for (const record of records) {
+    if (record.type !== "attributes") continue;
+    const skin = (record.target as Element).closest(".media-skin");
+    if (skin) menuLayout(skin);
+  }
+}).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-open"] });
+observeSkins();
