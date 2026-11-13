@@ -42,7 +42,7 @@ export const violetIcons = {
   speed: icon(
     '<path d="M7 4L20 12L7 20Z"/>',
   ),
-  switches: icon('<path d="M5 5H19V19H5Z"/><path d="M9 9H15V15H9Z"/>'),
+  switches: icon('<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17V21M8 21H16"/>'),
   speech: icon('<path d="M4 10V14M8 6V18M12 3V21M16 7V17M20 10V14"/>'),
   spinner: icon('<path d="M12 3A9 9 0 1 1 3 12"/>'),
 } as const;
