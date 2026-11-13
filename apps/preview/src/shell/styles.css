@@ -1,3 +1,4 @@
+@import "@/skin.css";
 /* The workbench shell. Your skin lives in the project's src/ folder and loads only in the preview frame. */
 @import "tailwindcss" source(none);
 
@@ -30,7 +31,7 @@
 }
 
 @theme {
-  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", sans-serif;
 }
 
 @theme inline {
@@ -137,3 +138,5 @@
     transition: none !important;
   }
 }
+
+:root { --background:#070416; --foreground:#faf7ff; --sidebar:#140e29; --sidebar-foreground:#faf7ff; --border:#ffffff24; --muted:#2a2041; --muted-foreground:#c6bbdc; --primary:#c084fc; --ring:#e9c3ff; }

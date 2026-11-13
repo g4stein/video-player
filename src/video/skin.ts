@@ -1,5 +1,5 @@
 import "../styles/video/base.css";
-import "../styles/themes/elsewhere.css";
+import "../styles/themes/violet.css";
 import "./skin.css";
 import "@videojs/html/i18n";
 import "@videojs/html/ui/container";
@@ -59,5 +59,29 @@ import "@videojs/html/ui/status-indicator";
 import "@videojs/html/ui/seek-indicator";
 import "@videojs/html/ui/seek-indicator-value";
 import { registerIcons } from "@videojs/html/icons";
-import { elsewhereIcons } from "./icons";
-registerIcons("elsewhere", elsewhereIcons);
+import { violetIcons } from "./icons";
+registerIcons("violet", violetIcons);
+
+// Route the menu action through the native captions control so both views stay synchronized.
+document.addEventListener("select", (event) => {
+  const item = event.target;
+  if (!(item instanceof Element) || !item.matches(".ew-caption-toggle")) return;
+  event.preventDefault();
+  const skin = item.closest(".media-skin");
+  (skin?.querySelector("media-captions-button") as HTMLElement | null)?.click();
+});
+
+const syncCaptions = () => {
+  document.querySelectorAll(".media-skin").forEach((skin) => {
+    const control = skin.querySelector("media-captions-button");
+    const toggle = skin.querySelector(".ew-caption-toggle");
+    if (!control || !toggle) return;
+    toggle.setAttribute("role", "menuitemcheckbox");
+    toggle.setAttribute("aria-checked", String(control.hasAttribute("data-active")));
+    toggle.setAttribute("aria-disabled", String(control.getAttribute("data-availability") === "unavailable"));
+  });
+};
+new MutationObserver(syncCaptions).observe(document.documentElement, {
+  subtree: true, childList: true, attributes: true,
+  attributeFilter: ["data-active", "data-availability"],
+});

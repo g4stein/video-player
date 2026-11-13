@@ -1,21 +1,12 @@
-# Floating Glass Dock — Video.js v10 Skin
+# Violet Glass
 
-An immersive, responsive 3D violet glass dock skin and showcase for Video.js v10. Featuring translucent violet/magenta glass spheres, neon progress scrubber, glowing thumbs, and a floating glass control dock.
+A Video.js v10 skin with floating 3D violet glass controls, DM Sans typography, and a straight neon magenta/purple timeline. All controls sit over the video inside its 16:9 frame.
 
-The player markup, styles, icons, and showcase are designed as a clean-slate overhaul matching the responsive reference designs:
-- **Tablet & Mobile (Reference Image 1):** Center floating 3D glass orb transport (`-10s`, `Play/Pause`, `+10s`) above the video canvas, paired with a bottom floating glass pill dock holding time, straight neon progress scrubber, volume, captions, settings, and fullscreen.
-- **Desktop (Reference Image 2):** Inline 3D glass transport orbs inside the bottom floating glass dock arranged in 4 distinct zones separated by vertical glass dividers.
+Desktop players wider than 900px, in viewports wider than 1024px, place 52px rewind/forward orbs and a 70px play/pause orb inside the 90px floating dock. Tablet and mobile layouts place the transport orbs over the picture above a pill dock. Compact phone controls scale to fit the video canvas.
 
-## Features
+Settings provide real speed and quality options and a captions toggle synchronized with the dock CC button. Video.js supplies playback, keyboard navigation, translated labels, status announcements, gestures, buffering and error handling. Focus remains visible; reduced motion, contrast and transparency preferences are respected.
 
-- **Responsive Breakpoint Logic:** Container query (`container-type: inline-size; container-name: player;`) ensures responsive switching between mobile/tablet and desktop modes both in real viewports and inside framed testing environments like `/workbench.html`.
-- **Center 3D Glass Orbs (Mobile/Tablet):** Translucent violet and magenta 3D spheres with neon rim glow and smooth backdrops.
-- **Straight Neon Progress Scrubber:** Vivid magenta/purple gradient played fill (`#9333ea` to `#ec4899` to `#f472b6`) with glowing white playhead thumb and buffered indicator.
-- **Volume & Utility Cluster:** Dedicated speaker mute toggle with smooth horizontal volume slider, `CC` captions badge button, Settings gear button, and Fullscreen toggle.
-- **Settings Speech-Bubble Popover:** Glass popover with caret pointer anchored directly over the settings gear icon, featuring cards for playback speed, quality selector, and a synced purple pill toggle switch for captions.
-- **Typography & Styling:** Clean typography powered by `DM Sans`, completely free of legacy Elsewhere acid-lime accents or undulating SVG timeline artifacts.
-
-## Quick Start
+## Development
 
 ```sh
 npm install
@@ -24,13 +15,20 @@ npm run typecheck
 npm run build
 ```
 
-- `/` serves the dark cinema showcase stage.
-- `/workbench.html` provides the Video.js workbench for testing viewports, aspect ratios, RTL, and accessibility.
+`/` opens the minimal dark cinema showcase with film and device size selectors. `/workbench.html` tests widths, ratios, languages, RTL and playback settings. `/preview.html` opens the isolated skin. Source lives in `src/` and does not depend on the showcase.
 
-## Mux Video Integration
+## Mux
 
-Set `MUX_PLAYBACK_ID` in `apps/preview/src/showcase/media.ts` to your public Mux playback ID, or test via the `?playbackId=YOUR_ID` query parameter.
+Set `MUX_PLAYBACK_ID` in `apps/preview/src/showcase/media.ts` or supply `?playbackId=YOUR_ID`. Use your own live Mux asset for the challenge bonus. Demo footage belongs to its respective providers.
 
-## License
+## Deployment
 
-Apache-2.0
+```sh
+npm run deploy vercel
+```
+
+The build outputs `dist/`. Connected Vercel branches may deploy automatically.
+
+## Credits
+
+Video.js v10 / Mux; NASA Cosmic Dawn trailer; Big Buck Bunny, © Blender Foundation, CC BY 3.0. DM Sans: SIL Open Font License. Original SVG controls. Skin source: Apache 2.0, see LICENSE. Third-party footage is not relicensed.

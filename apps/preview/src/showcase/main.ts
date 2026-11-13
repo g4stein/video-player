@@ -9,8 +9,6 @@ import { reels, posterUrl, streamUrl, type Reel } from "./media";
 
 const stage = document.getElementById("stage")!;
 const collection = reels();
-const arrow =
-  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>';
 const details = (reel: Reel) =>
   reel.id === "dark"
     ? {
@@ -77,7 +75,7 @@ const cards = collection.map((reel, index) => {
   button.type = "button";
   button.role = "radio";
   button.className = "destination-card";
-  button.innerHTML = `<div class="destination-image"><img src="${posterUrl(reel)}" alt="" loading="lazy"><span class="destination-badge">${info.category}</span><span class="destination-arrow">${arrow}</span></div><div class="destination-meta"><div><h3>${info.title}</h3><p>${info.subtitle}</p></div><span>${info.mood}</span></div>`;
+  button.textContent = info.title;
   button.setAttribute("aria-label", info.title);
   button.addEventListener("click", () => choose(index));
   button.addEventListener("keydown", (event) => {
