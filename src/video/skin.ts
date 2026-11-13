@@ -69,7 +69,7 @@ document.addEventListener("select", (event) => {
   event.preventDefault();
   const skin = item.closest(".media-skin");
   (skin?.querySelector("media-captions-button") as HTMLElement | null)?.click();
-});
+}, true);
 
 const syncCaptions = () => {
   document.querySelectorAll(".media-skin").forEach((skin) => {

@@ -1,5 +1,5 @@
 @layer components {
-.media-skin[data-theme="violet"] { position:relative; display:block; width:100%; height:100%; aspect-ratio:16/9; overflow:hidden; isolation:isolate; border-radius:var(--media-border-radius,24px); background:#070416; color:#fff; font:400 14px/1.4 'DM Sans',sans-serif; container-type:inline-size; container-name:player; --ew-accent:#e9b4ff; --ew-paper:#fff; --ew-ink:#100925; --ew-motion:180ms; --media-caption-controls-y:-110px; }
+.media-skin[data-theme="violet"] { position:relative; display:block; width:100%; height:100%; aspect-ratio:16/9; overflow:hidden; isolation:isolate; border-radius:var(--media-border-radius,24px); background:#070416; color:#fff; font:400 14px/1.4 'DM Sans',sans-serif; container-type:inline-size; container-name:player; --media-caption-controls-y:-110px; }
 .ew-sr-only {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .ew-icon {display:block;width:26px;height:26px;flex-shrink:0;pointer-events:none}
 .ew-button {position:relative;display:grid;place-items:center;flex-shrink:0;width:44px;height:44px;border:1px solid transparent;border-radius:50%;background:transparent;color:inherit;cursor:pointer}
@@ -39,6 +39,8 @@ media-slider-fill {width:var(--media-slider-fill,0%);background:linear-gradient(
 .ew-volume-slider media-slider-fill {background:linear-gradient(90deg,#9333ea,#c4b5fd);box-shadow:none}
 .ew-volume-slider media-slider-thumb {width:16px;height:16px;box-shadow:0 0 8px #fff7}
 #ew-settings {border-radius:14px;background:linear-gradient(145deg,#bfadff55,#60498c55);border-color:#d8c7ff66;box-shadow:inset 0 2px 4px #fff4}
+.ew-captions[data-active] .is-on {display:block}
+.ew-captions[data-active] .is-off {display:none}
 .ew-captions[data-active] .ew-icon {filter:drop-shadow(0 0 5px #e879f9);color:#fff}
 .ew-captions[data-active] {border-radius:10px;box-shadow:inset 0 0 8px #d946ef99,0 0 12px #d946ef99;border-color:#e9b4ff}
 .ew-content:not([data-visible]):not(:focus-within) :is(.ew-dock,.ew-center) {opacity:0;pointer-events:none}
@@ -69,7 +71,7 @@ media-menu-item-indicator {margin-inline-start:auto}
 .ew-preview-card img {max-width:160px}
 .ew-poster {position:absolute;inset:0;width:100%;height:100%}
 .ew-poster img {width:100%;height:100%;object-fit:contain}
-.ew-poster:not([data-visible]),.ew-preview:not([data-visible]) {display:none}
+.ew-poster:not([data-visible]),.ew-timeline:not([data-pointing]):not([data-dragging]) .ew-preview {display:none}
 .ew-scrim {position:absolute;inset:0;background:linear-gradient(0deg,#07041666,transparent 50%);pointer-events:none}
 .ew-scrim:not([data-visible]) {opacity:0}
 .ew-buffer {position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
@@ -83,6 +85,12 @@ media-menu-item-indicator {margin-inline-start:auto}
 .ew-indicators {position:absolute;inset:20% 0 auto;display:flex;justify-content:center;pointer-events:none;z-index:20}
 .ew-status {display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:99px;background:#201638}
 .ew-feedback .ew-icon {display:none}
+.ew-feedback[data-status="fullscreen"] .ew-feedback-fullscreen {display:block}
+.ew-feedback[data-status="exit-fullscreen"] .ew-feedback-exit-fullscreen {display:block}
+.ew-feedback[data-status="captions-on"] .ew-feedback-captions-on {display:block}
+.ew-feedback[data-status="captions-off"] .ew-feedback-captions-off {display:block}
+.ew-feedback[data-status="pip"] .ew-feedback-pip {display:block}
+.ew-feedback[data-status="exit-pip"] .ew-feedback-exit-pip {display:block}
 @media (min-width:1025px) {
  @container player (min-width:901px) {
  .ew-center {display:none}
@@ -121,6 +129,6 @@ media-menu-item-indicator {margin-inline-start:auto}
 }
 @media(prefers-reduced-motion:reduce) {.media-skin {--ew-motion:0ms}.ew-buffer .ew-icon {animation:none}.ew-button:active {transform:none}}
 @media(prefers-reduced-transparency:reduce),(prefers-contrast:more) {.ew-dock,.ew-menu {background:#21173f;backdrop-filter:none}}
-@media(forced-colors:active) {.ew-dock,.ew-menu,.ew-button {background:Canvas;color:CanvasText;border:1px solid CanvasText;box-shadow:none}.ew-trail,media-slider-fill,.ew-switch {background:Highlight}.ew-playhead {background:CanvasText;box-shadow:none}}
+@media(forced-colors:active) {.ew-dock,.ew-menu,.ew-button {background:Canvas;color:CanvasText;border:1px solid CanvasText;box-shadow:none}.ew-trail,media-slider-fill,.ew-switch {background:Highlight}.ew-playhead {background:CanvasText;box-shadow:none}.ew-menu-item,.ew-switch {border:1px solid CanvasText}.ew-menu::after {background:Canvas}}
 }
 @keyframes ew-spin {to {rotate:360deg}}

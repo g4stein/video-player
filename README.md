@@ -19,7 +19,7 @@ npm run build
 
 ## Mux
 
-Set `MUX_PLAYBACK_ID` in `apps/preview/src/showcase/media.ts` or supply `?playbackId=YOUR_ID`. Use your own live Mux asset for the challenge bonus. Demo footage belongs to its respective providers.
+Set `MUX_PLAYBACK_ID` in `apps/preview/src/showcase/media.ts` or supply `?playbackId=YOUR_ID` on the showcase or standalone preview. Use your own live Mux asset for the challenge bonus. Demo footage belongs to its respective providers.
 
 ## Deployment
 
@@ -32,3 +32,5 @@ The build outputs `dist/`. Connected Vercel branches may deploy automatically.
 ## Credits
 
 Video.js v10 / Mux; NASA Cosmic Dawn trailer; Big Buck Bunny, © Blender Foundation, CC BY 3.0. DM Sans: SIL Open Font License. Original SVG controls. Skin source: Apache 2.0, see LICENSE. Third-party footage is not relicensed.
+
+The existing Cloudflare deployment project name is retained to preserve the hosting configuration.

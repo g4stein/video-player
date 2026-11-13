@@ -14,24 +14,18 @@ const details = (reel: Reel) =>
     ? {
         title: "Cosmic Dawn",
         category: "DOCUMENTARY",
-        note: "A journey to the edge of what we know. NASA / Cosmic Dawn trailer.",
-        subtitle: "Into the unknown.",
-        mood: "WONDER",
+        note: "Cosmic Dawn trailer · NASA",
       }
     : reel.id === "bright"
       ? {
           title: "Big Buck Bunny",
           category: "ANIMATION",
-          note: "A brighter kind of escape. © Blender Foundation / CC BY 3.0.",
-          subtitle: "A lighter world.",
-          mood: "DELIGHT",
+          note: "© Blender Foundation · CC BY 3.0",
         }
       : {
-          title: "Your world",
+          title: "Your video",
           category: "YOUR FILM",
           note: "Your film, delivered by Mux.",
-          subtitle: "A place of your own.",
-          mood: "EXPLORE",
         };
 
 function mount(reel: Reel, index: number) {
